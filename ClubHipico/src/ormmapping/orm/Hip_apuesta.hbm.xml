@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: DuKe TeAm
+License Type: Purchased
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Hip_apuesta" table="hip_apuesta" lazy="false">
+		<id name="ap_id_apuesta" column="ap_id_apuesta" type="string">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="ap_monto" column="ap_monto" type="integer" length="100" not-null="true" lazy="false"/>
+		<property name="ap_tipo" column="ap_tipo" type="integer" length="10" not-null="true" lazy="false"/>
+		<many-to-one name="ca_id_caballo" cascade="lock" class="orm.Hip_caballos_hip_corrida" not-null="true" lazy="no-proxy" access="field">
+			<column name="ca_id_caballo"/>
+			<column name="co_id_carrera"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: DuKe TeAm
+License Type: Purchased
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Hip_caballos_hip_corrida" table="hip_caballos_hip_corrida" lazy="false">
+		<composite-id>
+			<key-many-to-one name="ORM_Ca_id_caballo" column="ca_id_caballo" class="orm.Hip_caballos">
+			</key-many-to-one>
+			<key-many-to-one name="ORM_Co_id_carrera" column="co_id_carrera" class="orm.Hip_corrida">
+			</key-many-to-one>
+		</composite-id>
+		<set name="ORM_Hip_apuesta" lazy="true" cascade="save-update,lock" inverse="true">
+			<key not-null="true">
+				<column name="ca_id_caballo"/>
+				<column name="co_id_carrera"/>
+			</key>
+			<one-to-many class="orm.Hip_apuesta"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: DuKe TeAm
+License Type: Purchased
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Hip_corrida" table="hip_corrida" lazy="false">
+		<id name="co_id_carrera" column="co_id_carrera" type="string">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="co_fecha" column="co_fecha" type="string" length="10" not-null="true" lazy="false"/>
+		<property name="co_hora" column="co_hora" type="string" length="10" not-null="true" lazy="false"/>
+		<set name="ORM_Hip_caballos_hip_corrida" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="co_id_carrera" not-null="true"/>
+			<one-to-many class="orm.Hip_caballos_hip_corrida"/>
+		</set>
+		<one-to-one name="hip_caja" class="orm.Hip_caja" cascade="save-update,lock" property-ref="co_id_carrera" lazy="no-proxy" access="field"/>
+	</class>
+</hibernate-mapping>
