@@ -40,12 +40,12 @@ public class Hip_caballosDetachedCriteria extends AbstractORMDetachedCriteria {
 		ca_edad = new IntegerExpression("ca_edad", this.getDetachedCriteria());
 	}
 	
-	public Hip_corridaDetachedCriteria createCo_id_carreraCriteria() {
-		return new Hip_corridaDetachedCriteria(createCriteria("ORM_Co_id_carrera"));
-	}
-	
 	public Hip_apuestaDetachedCriteria createHip_apuestaCriteria() {
 		return new Hip_apuestaDetachedCriteria(createCriteria("hip_apuesta"));
+	}
+	
+	public Hip_caballo_carreraDetachedCriteria createHip_caballo_carreraCriteria() {
+		return new Hip_caballo_carreraDetachedCriteria(createCriteria("hip_caballo_carrera"));
 	}
 	
 	public Hip_caballos uniqueHip_caballos(PersistentSession session) {

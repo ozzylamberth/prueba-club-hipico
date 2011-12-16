@@ -24,7 +24,7 @@ public class Hip_caja implements Serializable {
 	
 	private orm.Hip_corrida co_id_carrera;
 	
-	public void setCaj_id_caja(String value) {
+	private void setCaj_id_caja(String value) {
 		this.caj_id_caja = value;
 	}
 	

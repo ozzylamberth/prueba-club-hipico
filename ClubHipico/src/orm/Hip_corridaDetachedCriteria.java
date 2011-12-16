@@ -37,16 +37,16 @@ public class Hip_corridaDetachedCriteria extends AbstractORMDetachedCriteria {
 		co_hora = new StringExpression("co_hora", this.getDetachedCriteria());
 	}
 	
-	public Hip_caballosDetachedCriteria createCa_id_caballoCriteria() {
-		return new Hip_caballosDetachedCriteria(createCriteria("ORM_Ca_id_caballo"));
+	public Hip_cajaDetachedCriteria createHip_cajaCriteria() {
+		return new Hip_cajaDetachedCriteria(createCriteria("hip_caja"));
 	}
 	
 	public Hip_apuestaDetachedCriteria createHip_apuestaCriteria() {
 		return new Hip_apuestaDetachedCriteria(createCriteria("hip_apuesta"));
 	}
 	
-	public Hip_cajaDetachedCriteria createHip_cajaCriteria() {
-		return new Hip_cajaDetachedCriteria(createCriteria("hip_caja"));
+	public Hip_caballo_carreraDetachedCriteria createHip_caballo_carreraCriteria() {
+		return new Hip_caballo_carreraDetachedCriteria(createCriteria("hip_caballo_carrera"));
 	}
 	
 	public Hip_corrida uniqueHip_corrida(PersistentSession session) {

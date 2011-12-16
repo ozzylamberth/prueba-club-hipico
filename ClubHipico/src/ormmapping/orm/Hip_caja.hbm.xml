@@ -7,7 +7,7 @@ License Type: Purchased
 <hibernate-mapping>
 	<class name="orm.Hip_caja" table="hip_caja" lazy="false">
 		<id name="caj_id_caja" column="caj_id_caja" type="string">
-			<generator class="native">
+			<generator class="increment">
 			</generator>
 		</id>
 		<property name="caj_ganancia" column="caj_ganancia" type="integer" length="255" not-null="true" lazy="false"/>

@@ -24,6 +24,7 @@ public abstract class DAOFactory {
 	
 	public abstract Hip_caballosDAO getHip_caballosDAO();
 	public abstract Hip_corridaDAO getHip_corridaDAO();
+	public abstract Hip_caballo_carreraDAO getHip_caballo_carreraDAO();
 	public abstract Hip_apuestaDAO getHip_apuestaDAO();
 	public abstract Hip_cajaDAO getHip_cajaDAO();
 }

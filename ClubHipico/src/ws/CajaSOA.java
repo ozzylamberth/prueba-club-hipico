@@ -4,13 +4,12 @@ import org.orm.PersistentException;
 
 public class CajaSOA {
 	
-	public String add(String caj_id_caja,int caj_ganancia, String co_id_carrera ) throws PersistentException {
+	public String add(int caj_ganancia, String co_id_carrera ) throws PersistentException {
 		
 		String mensaje="";
 		int resultado=1;
 		
-		if(caj_id_caja.equals("") || caj_id_caja==null ||  caj_ganancia==0||
-				co_id_carrera.equals("") || co_id_carrera==null){
+		if( caj_ganancia==0|| co_id_carrera.equals("") || co_id_carrera==null){
 			
 			mensaje="introducir todos los datos";
 			resultado=0;
@@ -37,7 +36,7 @@ public class CajaSOA {
 				
 				//setear objeto caja
 				
-				lormHip_caja.setCaj_id_caja(caj_id_caja);
+
 				lormHip_caja.setCaj_ganancia(caj_ganancia);
 				lormHip_caja.setCo_id_carrera(lormHip_corrida);
 				

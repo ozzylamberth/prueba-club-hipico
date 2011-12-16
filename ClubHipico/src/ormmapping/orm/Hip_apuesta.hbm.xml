@@ -7,7 +7,7 @@ License Type: Purchased
 <hibernate-mapping>
 	<class name="orm.Hip_apuesta" table="hip_apuesta" lazy="false">
 		<id name="ap_id_apuesta" column="ap_id_apuesta" type="string">
-			<generator class="native">
+			<generator class="increment">
 			</generator>
 		</id>
 		<property name="ap_monto" column="ap_monto" type="integer" length="100" not-null="true" lazy="false"/>
