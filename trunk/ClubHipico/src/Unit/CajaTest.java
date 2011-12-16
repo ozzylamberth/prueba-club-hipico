@@ -12,7 +12,7 @@ public class CajaTest {
 
 
 		
-		System.out.println("resultado: "+new ws.CajaSOA().add("caj0001", 10000, "carr0001"));
+		System.out.println("resultado: "+new ws.CajaSOA().add( 10000, "carr0001"));
 
 	}
 

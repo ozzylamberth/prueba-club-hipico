@@ -26,6 +26,14 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Hip_caballo_carrera...");
+		orm.Hip_caballo_carrera[] ormHip_caballo_carreras = lDAOFactory.getHip_caballo_carreraDAO().listHip_caballo_carreraByQuery(null, null);
+		length = Math.min(ormHip_caballo_carreras.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(ormHip_caballo_carreras[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 		System.out.println("Listing Hip_apuesta...");
 		orm.Hip_apuesta[] ormHip_apuestas = lDAOFactory.getHip_apuestaDAO().listHip_apuestaByQuery(null, null);
 		length = Math.min(ormHip_apuestas.length, ROW_COUNT);
@@ -68,6 +76,18 @@ public void listTestData() throws PersistentException {
 			 System.out.println(ormHip_corridas[i]);
 		}
 		System.out.println(length + " Hip_corrida record(s) retrieved."); 
+		
+		System.out.println("Listing Hip_caballo_carrera by Criteria...");
+		orm.Hip_caballo_carreraCriteria hip_caballo_carreraCriteria = new orm.Hip_caballo_carreraCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//hip_caballo_carreraCriteria.cc_id_caballoencarrera.eq();
+		hip_caballo_carreraCriteria.setMaxResults(ROW_COUNT);
+		orm.Hip_caballo_carrera[] ormHip_caballo_carreras = hip_caballo_carreraCriteria.listHip_caballo_carrera();
+		length =ormHip_caballo_carreras== null ? 0 : Math.min(ormHip_caballo_carreras.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(ormHip_caballo_carreras[i]);
+		}
+		System.out.println(length + " Hip_caballo_carrera record(s) retrieved."); 
 		
 		System.out.println("Listing Hip_apuesta by Criteria...");
 		orm.Hip_apuestaCriteria hip_apuestaCriteria = new orm.Hip_apuestaCriteria();

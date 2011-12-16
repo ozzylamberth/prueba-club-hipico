@@ -28,7 +28,7 @@ public class Hip_apuesta implements Serializable {
 	
 	private orm.Hip_corrida co_id_carrera;
 	
-	public void setAp_id_apuesta(String value) {
+	private void setAp_id_apuesta(String value) {
 		this.ap_id_apuesta = value;
 	}
 	

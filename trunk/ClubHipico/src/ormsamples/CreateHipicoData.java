@@ -12,12 +12,16 @@ public class CreateHipicoData {
 			orm.DAOFactory lDAOFactory = orm.DAOFactory.getDAOFactory();
 			orm.dao.Hip_caballosDAO lormHip_caballosDAO = lDAOFactory.getHip_caballosDAO();
 			orm.Hip_caballos lormHip_caballos = lormHip_caballosDAO.createHip_caballos();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : hip_apuesta, co_id_carrera, ca_edad, ca_sexo, ca_nombre
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : hip_caballo_carrera, hip_apuesta, ca_edad, ca_sexo, ca_nombre
 			lormHip_caballosDAO.save(lormHip_caballos);
 			orm.dao.Hip_corridaDAO lormHip_corridaDAO = lDAOFactory.getHip_corridaDAO();
 			orm.Hip_corrida lormHip_corrida = lormHip_corridaDAO.createHip_corrida();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : hip_caja, hip_apuesta, ca_id_caballo, co_hora, co_fecha
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : hip_caballo_carrera, hip_apuesta, hip_caja, co_hora, co_fecha
 			lormHip_corridaDAO.save(lormHip_corrida);
+			orm.dao.Hip_caballo_carreraDAO lormHip_caballo_carreraDAO = lDAOFactory.getHip_caballo_carreraDAO();
+			orm.Hip_caballo_carrera lormHip_caballo_carrera = lormHip_caballo_carreraDAO.createHip_caballo_carrera();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : co_id_carrera, ca_id_caballo
+			lormHip_caballo_carreraDAO.save(lormHip_caballo_carrera);
 			orm.dao.Hip_apuestaDAO lormHip_apuestaDAO = lDAOFactory.getHip_apuestaDAO();
 			orm.Hip_apuesta lormHip_apuesta = lormHip_apuestaDAO.createHip_apuesta();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : co_id_carrera, ca_id_caballo, ap_tipo, ap_monto

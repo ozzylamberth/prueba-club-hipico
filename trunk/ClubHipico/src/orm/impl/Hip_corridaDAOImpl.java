@@ -281,16 +281,16 @@ public class Hip_corridaDAOImpl implements orm.dao.Hip_corridaDAO {
 	
 	public boolean deleteAndDissociate(orm.Hip_corrida hip_corrida)throws PersistentException {
 		try {
-			orm.Hip_caballos[] lCa_id_caballos = hip_corrida.ca_id_caballo.toArray();
-			for(int i = 0; i < lCa_id_caballos.length; i++) {
-				lCa_id_caballos[i].co_id_carrera.remove(hip_corrida);
+			if(hip_corrida.getHip_caja() != null) {
+				hip_corrida.getHip_caja().setCo_id_carrera(null);
 			}
+			
 			if(hip_corrida.getHip_apuesta() != null) {
 				hip_corrida.getHip_apuesta().setCo_id_carrera(null);
 			}
 			
-			if(hip_corrida.getHip_caja() != null) {
-				hip_corrida.getHip_caja().setCo_id_carrera(null);
+			if(hip_corrida.getHip_caballo_carrera() != null) {
+				hip_corrida.getHip_caballo_carrera().setCo_id_carrera(null);
 			}
 			
 			return delete(hip_corrida);
@@ -303,16 +303,16 @@ public class Hip_corridaDAOImpl implements orm.dao.Hip_corridaDAO {
 	
 	public boolean deleteAndDissociate(orm.Hip_corrida hip_corrida, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			orm.Hip_caballos[] lCa_id_caballos = hip_corrida.ca_id_caballo.toArray();
-			for(int i = 0; i < lCa_id_caballos.length; i++) {
-				lCa_id_caballos[i].co_id_carrera.remove(hip_corrida);
+			if(hip_corrida.getHip_caja() != null) {
+				hip_corrida.getHip_caja().setCo_id_carrera(null);
 			}
+			
 			if(hip_corrida.getHip_apuesta() != null) {
 				hip_corrida.getHip_apuesta().setCo_id_carrera(null);
 			}
 			
-			if(hip_corrida.getHip_caja() != null) {
-				hip_corrida.getHip_caja().setCo_id_carrera(null);
+			if(hip_corrida.getHip_caballo_carrera() != null) {
+				hip_corrida.getHip_caballo_carrera().setCo_id_carrera(null);
 			}
 			
 			try {
