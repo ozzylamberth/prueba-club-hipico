@@ -11,7 +11,7 @@ public class ApuestaTest {
 	public static void main(String[] args) throws PersistentException {
 		
 		
-		System.out.println("resultado: "+new ws.ApuestaSOA().add(2000, "1er lugar", "cab0001", "carr0001"));
+		System.out.println("resultado: "+new ws.ApuestaSOA().add(2000, "1er lugar", "cab0003", "carr0001"));
 		
 	}
 

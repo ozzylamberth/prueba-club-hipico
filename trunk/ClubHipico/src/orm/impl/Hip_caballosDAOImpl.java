@@ -281,14 +281,10 @@ public class Hip_caballosDAOImpl implements orm.dao.Hip_caballosDAO {
 	
 	public boolean deleteAndDissociate(orm.Hip_caballos hip_caballos)throws PersistentException {
 		try {
-			if(hip_caballos.getHip_apuesta() != null) {
-				hip_caballos.getHip_apuesta().setCa_id_caballo(null);
+			orm.Hip_apuesta[] lHip_apuestas = hip_caballos.hip_apuesta.toArray();
+			for(int i = 0; i < lHip_apuestas.length; i++) {
+				lHip_apuestas[i].setCa_id_caballo(null);
 			}
-			
-			if(hip_caballos.getHip_caballo_carrera() != null) {
-				hip_caballos.getHip_caballo_carrera().setCa_id_caballo(null);
-			}
-			
 			return delete(hip_caballos);
 		}
 		catch(Exception e) {
@@ -299,14 +295,10 @@ public class Hip_caballosDAOImpl implements orm.dao.Hip_caballosDAO {
 	
 	public boolean deleteAndDissociate(orm.Hip_caballos hip_caballos, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if(hip_caballos.getHip_apuesta() != null) {
-				hip_caballos.getHip_apuesta().setCa_id_caballo(null);
+			orm.Hip_apuesta[] lHip_apuestas = hip_caballos.hip_apuesta.toArray();
+			for(int i = 0; i < lHip_apuestas.length; i++) {
+				lHip_apuestas[i].setCa_id_caballo(null);
 			}
-			
-			if(hip_caballos.getHip_caballo_carrera() != null) {
-				hip_caballos.getHip_caballo_carrera().setCa_id_caballo(null);
-			}
-			
 			try {
 				session.delete(hip_caballos);
 				return true;

@@ -13,7 +13,9 @@ License Type: Purchased
 		<property name="ca_nombre" column="ca_nombre" type="string" length="100" not-null="true" lazy="false"/>
 		<property name="ca_sexo" column="ca_sexo" type="string" length="10" not-null="true" lazy="false"/>
 		<property name="ca_edad" column="ca_edad" type="integer" length="1" not-null="true" lazy="false"/>
-		<one-to-one name="hip_apuesta" class="orm.Hip_apuesta" cascade="save-update,lock" property-ref="ca_id_caballo" lazy="no-proxy" access="field"/>
-		<one-to-one name="hip_caballo_carrera" class="orm.Hip_caballo_carrera" cascade="save-update,lock" property-ref="ca_id_caballo" lazy="no-proxy" access="field"/>
+		<set name="ORM_Hip_apuesta" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="ca_id_caballo" not-null="true"/>
+			<one-to-many class="orm.Hip_apuesta"/>
+		</set>
 	</class>
 </hibernate-mapping>

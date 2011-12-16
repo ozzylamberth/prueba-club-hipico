@@ -28,7 +28,7 @@ public class CajaSOA {
 				orm.dao.Hip_cajaDAO lormHip_cajaDAO = lDAOFactory.getHip_cajaDAO();
 				orm.Hip_caja lormHip_caja = lormHip_cajaDAO.createHip_caja();
 				
-				//instanciar objeto corrida
+				//instanciar objeto apuesta
 				
 				orm.dao.Hip_corridaDAO lormCorridaDAO =lDAOFactory.getHip_corridaDAO();
 				orm.Hip_corrida lormHip_corrida = lormCorridaDAO.getHip_corridaByORMID(co_id_carrera);

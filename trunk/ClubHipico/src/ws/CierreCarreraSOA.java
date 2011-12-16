@@ -24,7 +24,7 @@ public class CierreCarreraSOA {
 			resultado=0;
 			
 		}
-		else{
+		else{ 
 			if(resultado==1){
 				
 				try {
@@ -33,7 +33,7 @@ public class CierreCarreraSOA {
 				
 				//instanciar objeto apuesta
 				
-				orm.dao.Hip_apuestaDAO lormHip_apuestaDAO = lDAOFactory.getHip_apuestaDAO();
+				//orm.dao.Hip_apuestaDAO lormHip_apuestaDAO = lDAOFactory.getHip_apuestaDAO();
 				
 				
 				
@@ -41,8 +41,8 @@ public class CierreCarreraSOA {
 				//creando coleccion de apuesta para calcular valores
 				Collection<ApuestaSOAPVO> coleccionApuesta = new ArrayList<ApuestaSOAPVO>();
 				orm.Hip_apuesta[] ormApuesta;
-				
-				ormApuesta =lDAOFactory.getHip_apuestaDAO().listHip_apuestaByQuery("co_id_carrera='"+co_id_carrera+"'", null);
+				//
+				ormApuesta =lDAOFactory.getHip_apuestaDAO().listHip_apuestaByQuery("co_id_carrera like'%"+co_id_carrera+"%'", null);
 
 				
 	        	for (int i = 0; i < ormApuesta.length; i++ ){

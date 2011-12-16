@@ -18,17 +18,30 @@ public class Hip_corrida implements Serializable {
 	public Hip_corrida() {
 	}
 	
+	private java.util.Set this_getSet (int key) {
+		if (key == orm.ORMConstants.KEY_HIP_CORRIDA_HIP_APUESTA) {
+			return ORM_hip_apuesta;
+		}
+		
+		return null;
+	}
+	
+	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
+		public java.util.Set getSet(int key) {
+			return this_getSet(key);
+		}
+		
+	};
+	
 	private String co_id_carrera;
 	
 	private String co_fecha;
 	
 	private String co_hora;
 	
+	private java.util.Set ORM_hip_apuesta = new java.util.HashSet();
+	
 	private orm.Hip_caja hip_caja;
-	
-	private orm.Hip_apuesta hip_apuesta;
-	
-	private orm.Hip_caballo_carrera hip_caballo_carrera;
 	
 	public void setCo_id_carrera(String value) {
 		this.co_id_carrera = value;
@@ -58,6 +71,16 @@ public class Hip_corrida implements Serializable {
 		return co_hora;
 	}
 	
+	private void setORM_Hip_apuesta(java.util.Set value) {
+		this.ORM_hip_apuesta = value;
+	}
+	
+	private java.util.Set getORM_Hip_apuesta() {
+		return ORM_hip_apuesta;
+	}
+	
+	public final orm.Hip_apuestaSetCollection hip_apuesta = new orm.Hip_apuestaSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_HIP_CORRIDA_HIP_APUESTA, orm.ORMConstants.KEY_HIP_APUESTA_CO_ID_CARRERA, orm.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
 	public void setHip_caja(orm.Hip_caja value) {
 		if (this.hip_caja != value) {
 			orm.Hip_caja lhip_caja = this.hip_caja;
@@ -73,40 +96,6 @@ public class Hip_corrida implements Serializable {
 	
 	public orm.Hip_caja getHip_caja() {
 		return hip_caja;
-	}
-	
-	public void setHip_apuesta(orm.Hip_apuesta value) {
-		if (this.hip_apuesta != value) {
-			orm.Hip_apuesta lhip_apuesta = this.hip_apuesta;
-			this.hip_apuesta = value;
-			if (value != null) {
-				hip_apuesta.setCo_id_carrera(this);
-			}
-			else {
-				lhip_apuesta.setCo_id_carrera(null);
-			}
-		}
-	}
-	
-	public orm.Hip_apuesta getHip_apuesta() {
-		return hip_apuesta;
-	}
-	
-	public void setHip_caballo_carrera(orm.Hip_caballo_carrera value) {
-		if (this.hip_caballo_carrera != value) {
-			orm.Hip_caballo_carrera lhip_caballo_carrera = this.hip_caballo_carrera;
-			this.hip_caballo_carrera = value;
-			if (value != null) {
-				hip_caballo_carrera.setCo_id_carrera(this);
-			}
-			else {
-				lhip_caballo_carrera.setCo_id_carrera(null);
-			}
-		}
-	}
-	
-	public orm.Hip_caballo_carrera getHip_caballo_carrera() {
-		return hip_caballo_carrera;
 	}
 	
 	public String toString() {

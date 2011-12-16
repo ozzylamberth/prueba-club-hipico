@@ -12,9 +12,9 @@ License Type: Purchased
 		</id>
 		<property name="ap_monto" column="ap_monto" type="integer" length="100" not-null="true" lazy="false"/>
 		<property name="ap_tipo" column="ap_tipo" type="string" length="10" not-null="true" lazy="false"/>
-		<many-to-one name="ca_id_caballo" column="ca_id_caballo" class="orm.Hip_caballos" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		<many-to-one name="ca_id_caballo" cascade="lock" column="ca_id_caballo" class="orm.Hip_caballos" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
-		<many-to-one name="co_id_carrera" column="co_id_carrera" class="orm.Hip_corrida" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		<many-to-one name="co_id_carrera" cascade="lock" column="co_id_carrera" class="orm.Hip_corrida" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 	</class>
 </hibernate-mapping>
