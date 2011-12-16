@@ -7,8 +7,8 @@ public class CierreCarreraTest {
 	 */
 	public static void main(String[] args) {
 
-	
-		System.out.println("resultado= "+new ws.CierreCarreraSOA().cerrarCaja("carr0001", "primer_lugar", "segundo_lugar"));
+		//aca elijo la carrera y el caballo que gano
+		System.out.println("resultado= "+new ws.CierreCarreraSOA().cerrarCaja("carr0001", "cab0004"));
 
 	}
 

@@ -32,10 +32,5 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _hip_apuestaDAO;
 	}
 	
-	private Hip_cajaDAO _hip_cajaDAO = new Hip_cajaDAOImpl();
-	public Hip_cajaDAO getHip_cajaDAO() {
-		return _hip_cajaDAO;
-	}
-	
 }
 
