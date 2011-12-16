@@ -43,6 +43,10 @@ public class ApuestaSOA {
 				orm.Hip_corrida lormHip_corrida = lormCorridaDAO.getHip_corridaByORMID(co_id_carrera);
 				lormCorridaDAO.save(lormHip_corrida);
 				
+				//instanciando objeto caja
+				
+				orm.dao.Hip_cajaDAO lormHip_cajaDAO = lDAOFactory.getHip_cajaDAO();
+				orm.Hip_caja lormHip_caja = lormHip_cajaDAO.getHip_cajaByORMID());
 				
 				
 				//seteando objeto apuesta

@@ -37,12 +37,12 @@ public class Hip_corridaDetachedCriteria extends AbstractORMDetachedCriteria {
 		co_hora = new StringExpression("co_hora", this.getDetachedCriteria());
 	}
 	
-	public Hip_apuestaDetachedCriteria createHip_apuestaCriteria() {
-		return new Hip_apuestaDetachedCriteria(createCriteria("ORM_Hip_apuesta"));
-	}
-	
 	public Hip_cajaDetachedCriteria createHip_cajaCriteria() {
 		return new Hip_cajaDetachedCriteria(createCriteria("hip_caja"));
+	}
+	
+	public Hip_apuestaDetachedCriteria createHip_apuestaCriteria() {
+		return new Hip_apuestaDetachedCriteria(createCriteria("ORM_Hip_apuesta"));
 	}
 	
 	public Hip_corrida uniqueHip_corrida(PersistentSession session) {

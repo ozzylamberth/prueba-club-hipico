@@ -57,6 +57,7 @@ public class RetrieveAndUpdateHipicoData {
 		orm.Hip_cajaCriteria hip_cajaCriteria = new orm.Hip_cajaCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
 		//hip_cajaCriteria.caj_id_caja.eq();
+		//hip_cajaCriteria.co_id_carrera.eq();
 		System.out.println(hip_cajaCriteria.uniqueHip_caja());
 		
 	}
