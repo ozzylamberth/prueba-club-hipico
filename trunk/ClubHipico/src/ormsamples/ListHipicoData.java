@@ -85,6 +85,8 @@ public void listTestData() throws PersistentException {
 		orm.Hip_cajaCriteria hip_cajaCriteria = new orm.Hip_cajaCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
 		//hip_cajaCriteria.caj_id_caja.eq();
+		//orm.Hip_corridaCriteria hip_cajaCriteria_Hip_corrida = hip_cajaCriteria.createCo_id_carreraCriteria();
+		//hip_cajaCriteria_Hip_corrida.co_id_carrera.eq();
 		hip_cajaCriteria.setMaxResults(ROW_COUNT);
 		orm.Hip_caja[] ormHip_cajas = hip_cajaCriteria.listHip_caja();
 		length =ormHip_cajas== null ? 0 : Math.min(ormHip_cajas.length, ROW_COUNT); 

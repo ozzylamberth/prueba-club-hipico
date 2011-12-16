@@ -19,10 +19,10 @@ import java.util.List;
 import orm.*;
 
 public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
-	public Hip_caja loadHip_cajaByORMID(int caj_id_caja) throws PersistentException {
+	public Hip_caja loadHip_cajaByORMID(int caj_id_caja, orm.Hip_corrida co_id_carrera) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
-			return loadHip_cajaByORMID(session, caj_id_caja);
+			return loadHip_cajaByORMID(session, caj_id_caja, co_id_carrera);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja getHip_cajaByORMID(int caj_id_caja) throws PersistentException {
+	public Hip_caja getHip_cajaByORMID(int caj_id_caja, orm.Hip_corrida co_id_carrera) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
-			return getHip_cajaByORMID(session, caj_id_caja);
+			return getHip_cajaByORMID(session, caj_id_caja, co_id_carrera);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja loadHip_cajaByORMID(int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_caja loadHip_cajaByORMID(int caj_id_caja, orm.Hip_corrida co_id_carrera, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
-			return loadHip_cajaByORMID(session, caj_id_caja, lockMode);
+			return loadHip_cajaByORMID(session, caj_id_caja, co_id_carrera, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja getHip_cajaByORMID(int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_caja getHip_cajaByORMID(int caj_id_caja, orm.Hip_corrida co_id_carrera, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
-			return getHip_cajaByORMID(session, caj_id_caja, lockMode);
+			return getHip_cajaByORMID(session, caj_id_caja, co_id_carrera, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,13 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja loadHip_cajaByORMID(PersistentSession session, int caj_id_caja) throws PersistentException {
+	public Hip_caja loadHip_cajaByORMID(PersistentSession session, int caj_id_caja, orm.Hip_corrida co_id_carrera) throws PersistentException {
 		try {
-			return (Hip_caja) session.load(orm.Hip_caja.class, new Integer(caj_id_caja));
+			Hip_caja hip_caja = new orm.Hip_caja();
+			hip_caja.setCaj_id_caja(caj_id_caja);
+			hip_caja.setCo_id_carrera(co_id_carrera);
+			
+			return (Hip_caja) session.load(orm.Hip_caja.class, hip_caja);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +77,13 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja getHip_cajaByORMID(PersistentSession session, int caj_id_caja) throws PersistentException {
+	public Hip_caja getHip_cajaByORMID(PersistentSession session, int caj_id_caja, orm.Hip_corrida co_id_carrera) throws PersistentException {
 		try {
-			return (Hip_caja) session.get(orm.Hip_caja.class, new Integer(caj_id_caja));
+			Hip_caja hip_caja = new orm.Hip_caja();
+			hip_caja.setCaj_id_caja(caj_id_caja);
+			hip_caja.setCo_id_carrera(co_id_carrera);
+			
+			return (Hip_caja) session.get(orm.Hip_caja.class, hip_caja);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +91,13 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja loadHip_cajaByORMID(PersistentSession session, int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_caja loadHip_cajaByORMID(PersistentSession session, int caj_id_caja, orm.Hip_corrida co_id_carrera, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Hip_caja) session.load(orm.Hip_caja.class, new Integer(caj_id_caja), lockMode);
+			Hip_caja hip_caja = new orm.Hip_caja();
+			hip_caja.setCaj_id_caja(caj_id_caja);
+			hip_caja.setCo_id_carrera(co_id_carrera);
+			
+			return (Hip_caja) session.load(orm.Hip_caja.class, hip_caja, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +105,13 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja getHip_cajaByORMID(PersistentSession session, int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_caja getHip_cajaByORMID(PersistentSession session, int caj_id_caja, orm.Hip_corrida co_id_carrera, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Hip_caja) session.get(orm.Hip_caja.class, new Integer(caj_id_caja), lockMode);
+			Hip_caja hip_caja = new orm.Hip_caja();
+			hip_caja.setCaj_id_caja(caj_id_caja);
+			hip_caja.setCo_id_carrera(co_id_carrera);
+			
+			return (Hip_caja) session.get(orm.Hip_caja.class, hip_caja, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -281,9 +297,11 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 	
 	public boolean deleteAndDissociate(orm.Hip_caja hip_caja)throws PersistentException {
 		try {
+			orm.Hip_corrida co_id_carrera = hip_caja.getCo_id_carrera();
 			if(hip_caja.getCo_id_carrera() != null) {
 				hip_caja.getCo_id_carrera().setHip_caja(null);
 			}
+			hip_caja.setCo_id_carrera(co_id_carrera);
 			
 			return delete(hip_caja);
 		}
@@ -295,9 +313,11 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 	
 	public boolean deleteAndDissociate(orm.Hip_caja hip_caja, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			orm.Hip_corrida co_id_carrera = hip_caja.getCo_id_carrera();
 			if(hip_caja.getCo_id_carrera() != null) {
 				hip_caja.getCo_id_carrera().setHip_caja(null);
 			}
+			hip_caja.setCo_id_carrera(co_id_carrera);
 			
 			try {
 				session.delete(hip_caja);

@@ -39,9 +39,9 @@ public class Hip_corrida implements Serializable {
 	
 	private String co_hora;
 	
-	private java.util.Set ORM_hip_apuesta = new java.util.HashSet();
-	
 	private orm.Hip_caja hip_caja;
+	
+	private java.util.Set ORM_hip_apuesta = new java.util.HashSet();
 	
 	public void setCo_id_carrera(String value) {
 		this.co_id_carrera = value;
@@ -71,16 +71,6 @@ public class Hip_corrida implements Serializable {
 		return co_hora;
 	}
 	
-	private void setORM_Hip_apuesta(java.util.Set value) {
-		this.ORM_hip_apuesta = value;
-	}
-	
-	private java.util.Set getORM_Hip_apuesta() {
-		return ORM_hip_apuesta;
-	}
-	
-	public final orm.Hip_apuestaSetCollection hip_apuesta = new orm.Hip_apuestaSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_HIP_CORRIDA_HIP_APUESTA, orm.ORMConstants.KEY_HIP_APUESTA_CO_ID_CARRERA, orm.ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
 	public void setHip_caja(orm.Hip_caja value) {
 		if (this.hip_caja != value) {
 			orm.Hip_caja lhip_caja = this.hip_caja;
@@ -97,6 +87,16 @@ public class Hip_corrida implements Serializable {
 	public orm.Hip_caja getHip_caja() {
 		return hip_caja;
 	}
+	
+	private void setORM_Hip_apuesta(java.util.Set value) {
+		this.ORM_hip_apuesta = value;
+	}
+	
+	private java.util.Set getORM_Hip_apuesta() {
+		return ORM_hip_apuesta;
+	}
+	
+	public final orm.Hip_apuestaSetCollection hip_apuesta = new orm.Hip_apuestaSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_HIP_CORRIDA_HIP_APUESTA, orm.ORMConstants.KEY_HIP_APUESTA_CO_ID_CARRERA, orm.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getCo_id_carrera());

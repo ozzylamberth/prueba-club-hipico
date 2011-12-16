@@ -165,7 +165,7 @@
       <UserTypes/>
     </Column>
     <Column name="co_id_carrera">
-      <PrimaryKey>false</PrimaryKey>
+      <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>hip_corrida.co_id_carrera</ReferencedColumn>
       <Type>27</Type>
