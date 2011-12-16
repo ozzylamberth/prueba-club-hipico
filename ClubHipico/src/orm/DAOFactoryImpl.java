@@ -27,11 +27,6 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _hip_corridaDAO;
 	}
 	
-	private Hip_caballos_hip_corridaDAO _hip_caballos_hip_corridaDAO = new Hip_caballos_hip_corridaDAOImpl();
-	public Hip_caballos_hip_corridaDAO getHip_caballos_hip_corridaDAO() {
-		return _hip_caballos_hip_corridaDAO;
-	}
-	
 	private Hip_apuestaDAO _hip_apuestaDAO = new Hip_apuestaDAOImpl();
 	public Hip_apuestaDAO getHip_apuestaDAO() {
 		return _hip_apuestaDAO;

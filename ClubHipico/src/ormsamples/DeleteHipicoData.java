@@ -18,10 +18,6 @@ public class DeleteHipicoData {
 			orm.Hip_corrida lormHip_corrida = lormHip_corridaDAO.loadHip_corridaByQuery(null, null);
 			// Delete the persistent object
 			lormHip_corridaDAO.delete(lormHip_corrida);
-			orm.dao.Hip_caballos_hip_corridaDAO lormHip_caballos_hip_corridaDAO = lDAOFactory.getHip_caballos_hip_corridaDAO();
-			orm.Hip_caballos_hip_corrida lormHip_caballos_hip_corrida = lormHip_caballos_hip_corridaDAO.loadHip_caballos_hip_corridaByQuery(null, null);
-			// Delete the persistent object
-			lormHip_caballos_hip_corridaDAO.delete(lormHip_caballos_hip_corrida);
 			orm.dao.Hip_apuestaDAO lormHip_apuestaDAO = lDAOFactory.getHip_apuestaDAO();
 			orm.Hip_apuesta lormHip_apuesta = lormHip_apuestaDAO.loadHip_apuestaByQuery(null, null);
 			// Delete the persistent object

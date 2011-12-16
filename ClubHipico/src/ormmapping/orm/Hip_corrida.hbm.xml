@@ -12,10 +12,12 @@ License Type: Purchased
 		</id>
 		<property name="co_fecha" column="co_fecha" type="string" length="10" not-null="true" lazy="false"/>
 		<property name="co_hora" column="co_hora" type="string" length="10" not-null="true" lazy="false"/>
-		<set name="ORM_Hip_caballos_hip_corrida" lazy="true" cascade="save-update,lock" inverse="true">
+		<set name="ORM_Ca_id_caballo" table="hip_caballos_hip_corrida" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="co_id_carrera" not-null="true"/>
-			<one-to-many class="orm.Hip_caballos_hip_corrida"/>
+			<many-to-many column="ca_id_caballo" class="orm.Hip_caballos">
+			</many-to-many>
 		</set>
+		<one-to-one name="hip_apuesta" class="orm.Hip_apuesta" cascade="save-update,lock" property-ref="co_id_carrera" lazy="no-proxy" access="field"/>
 		<one-to-one name="hip_caja" class="orm.Hip_caja" cascade="save-update,lock" property-ref="co_id_carrera" lazy="no-proxy" access="field"/>
 	</class>
 </hibernate-mapping>

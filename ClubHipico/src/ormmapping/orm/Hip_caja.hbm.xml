@@ -10,7 +10,7 @@ License Type: Purchased
 			<generator class="native">
 			</generator>
 		</id>
-		<property name="ganancia" column="ganancia" type="integer" length="255" not-null="true" lazy="false"/>
+		<property name="caj_ganancia" column="caj_ganancia" type="integer" length="255" not-null="true" lazy="false"/>
 		<many-to-one name="co_id_carrera" column="co_id_carrera" class="orm.Hip_corrida" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 	</class>

@@ -134,7 +134,7 @@
     <Column name="ap_tipo">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
+      <Type>27</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
@@ -145,7 +145,7 @@
     <Column name="ca_id_caballo">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hip_caballos_hip_corrida.ca_id_caballo</ReferencedColumn>
+      <ReferencedColumn>hip_caballos.ca_id_caballo</ReferencedColumn>
       <Type>27</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -157,7 +157,7 @@
     <Column name="co_id_carrera">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hip_caballos_hip_corrida.co_id_carrera</ReferencedColumn>
+      <ReferencedColumn>hip_corrida.co_id_carrera</ReferencedColumn>
       <Type>27</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -179,7 +179,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="ganancia">
+    <Column name="caj_ganancia">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
@@ -223,18 +223,6 @@
       <Column>co_id_carrera</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKhip_apuest508835">
-    <ReferenceTable>hip_apuesta</ReferenceTable>
-    <ReferencedTable>hip_caballos_hip_corrida</ReferencedTable>
-    <Columns>
-      <Column>ca_id_caballo</Column>
-      <Column>co_id_carrera</Column>
-    </Columns>
-    <RefColumns>
-      <Column>ca_id_caballo</Column>
-      <Column>co_id_carrera</Column>
-    </RefColumns>
-  </ForeignKey>
   <ForeignKey name="FKhip_caja451220">
     <ReferenceTable>hip_caja</ReferenceTable>
     <ReferencedTable>hip_corrida</ReferencedTable>
@@ -243,6 +231,26 @@
     </Columns>
     <RefColumns>
       <Column>co_id_carrera</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKhip_apuest462163">
+    <ReferenceTable>hip_apuesta</ReferenceTable>
+    <ReferencedTable>hip_corrida</ReferencedTable>
+    <Columns>
+      <Column>co_id_carrera</Column>
+    </Columns>
+    <RefColumns>
+      <Column>co_id_carrera</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKhip_apuest882214">
+    <ReferenceTable>hip_apuesta</ReferenceTable>
+    <ReferencedTable>hip_caballos</ReferencedTable>
+    <Columns>
+      <Column>ca_id_caballo</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ca_id_caballo</Column>
     </RefColumns>
   </ForeignKey>
 </Model>

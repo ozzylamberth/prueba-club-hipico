@@ -26,14 +26,6 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
-		System.out.println("Listing Hip_caballos_hip_corrida...");
-		orm.Hip_caballos_hip_corrida[] ormHip_caballos_hip_corridas = lDAOFactory.getHip_caballos_hip_corridaDAO().listHip_caballos_hip_corridaByQuery(null, null);
-		length = Math.min(ormHip_caballos_hip_corridas.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(ormHip_caballos_hip_corridas[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
 		System.out.println("Listing Hip_apuesta...");
 		orm.Hip_apuesta[] ormHip_apuestas = lDAOFactory.getHip_apuestaDAO().listHip_apuestaByQuery(null, null);
 		length = Math.min(ormHip_apuestas.length, ROW_COUNT);
@@ -76,21 +68,6 @@ public void listTestData() throws PersistentException {
 			 System.out.println(ormHip_corridas[i]);
 		}
 		System.out.println(length + " Hip_corrida record(s) retrieved."); 
-		
-		System.out.println("Listing Hip_caballos_hip_corrida by Criteria...");
-		orm.Hip_caballos_hip_corridaCriteria hip_caballos_hip_corridaCriteria = new orm.Hip_caballos_hip_corridaCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//orm.Hip_caballosCriteria hip_caballos_hip_corridaCriteria_Hip_caballos = hip_caballos_hip_corridaCriteria.createCa_id_caballoCriteria();
-		//hip_caballos_hip_corridaCriteria_Hip_caballos.ca_id_caballo.eq();
-		//orm.Hip_corridaCriteria hip_caballos_hip_corridaCriteria_Hip_corrida = hip_caballos_hip_corridaCriteria.createCo_id_carreraCriteria();
-		//hip_caballos_hip_corridaCriteria_Hip_corrida.co_id_carrera.eq();
-		hip_caballos_hip_corridaCriteria.setMaxResults(ROW_COUNT);
-		orm.Hip_caballos_hip_corrida[] ormHip_caballos_hip_corridas = hip_caballos_hip_corridaCriteria.listHip_caballos_hip_corrida();
-		length =ormHip_caballos_hip_corridas== null ? 0 : Math.min(ormHip_caballos_hip_corridas.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(ormHip_caballos_hip_corridas[i]);
-		}
-		System.out.println(length + " Hip_caballos_hip_corrida record(s) retrieved."); 
 		
 		System.out.println("Listing Hip_apuesta by Criteria...");
 		orm.Hip_apuestaCriteria hip_apuestaCriteria = new orm.Hip_apuestaCriteria();

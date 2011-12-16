@@ -19,16 +19,30 @@ public class Hip_corrida implements Serializable {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == orm.ORMConstants.KEY_HIP_CORRIDA_HIP_CABALLOS_HIP_CORRIDA) {
-			return ORM_hip_caballos_hip_corrida;
+		if (key == orm.ORMConstants.KEY_HIP_CORRIDA_CA_ID_CABALLO) {
+			return ORM_ca_id_caballo;
 		}
 		
 		return null;
 	}
 	
+	private void this_setOwner(Object owner, int key) {
+		if (key == orm.ORMConstants.KEY_HIP_CORRIDA_HIP_APUESTA) {
+			this.hip_apuesta = (orm.Hip_apuesta) owner;
+		}
+		
+		else if (key == orm.ORMConstants.KEY_HIP_CORRIDA_HIP_CAJA) {
+			this.hip_caja = (orm.Hip_caja) owner;
+		}
+	}
+	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
+		}
+		
+		public void setOwner(Object owner, int key) {
+			this_setOwner(owner, key);
 		}
 		
 	};
@@ -39,7 +53,9 @@ public class Hip_corrida implements Serializable {
 	
 	private String co_hora;
 	
-	private java.util.Set ORM_hip_caballos_hip_corrida = new java.util.HashSet();
+	private java.util.Set ORM_ca_id_caballo = new java.util.HashSet();
+	
+	private orm.Hip_apuesta hip_apuesta;
 	
 	private orm.Hip_caja hip_caja;
 	
@@ -71,15 +87,32 @@ public class Hip_corrida implements Serializable {
 		return co_hora;
 	}
 	
-	private void setORM_Hip_caballos_hip_corrida(java.util.Set value) {
-		this.ORM_hip_caballos_hip_corrida = value;
+	private void setORM_Ca_id_caballo(java.util.Set value) {
+		this.ORM_ca_id_caballo = value;
 	}
 	
-	private java.util.Set getORM_Hip_caballos_hip_corrida() {
-		return ORM_hip_caballos_hip_corrida;
+	private java.util.Set getORM_Ca_id_caballo() {
+		return ORM_ca_id_caballo;
 	}
 	
-	public final orm.Hip_caballos_hip_corridaSetCollection hip_caballos_hip_corrida = new orm.Hip_caballos_hip_corridaSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_HIP_CORRIDA_HIP_CABALLOS_HIP_CORRIDA, orm.ORMConstants.KEY_HIP_CABALLOS_HIP_CORRIDA_CO_ID_CARRERA, orm.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final orm.Hip_caballosSetCollection ca_id_caballo = new orm.Hip_caballosSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_HIP_CORRIDA_CA_ID_CABALLO, orm.ORMConstants.KEY_HIP_CABALLOS_CO_ID_CARRERA, orm.ORMConstants.KEY_MUL_MANY_TO_MANY);
+	
+	public void setHip_apuesta(orm.Hip_apuesta value) {
+		if (this.hip_apuesta != value) {
+			orm.Hip_apuesta lhip_apuesta = this.hip_apuesta;
+			this.hip_apuesta = value;
+			if (value != null) {
+				hip_apuesta.setCo_id_carrera(this);
+			}
+			else {
+				lhip_apuesta.setCo_id_carrera(null);
+			}
+		}
+	}
+	
+	public orm.Hip_apuesta getHip_apuesta() {
+		return hip_apuesta;
+	}
 	
 	public void setHip_caja(orm.Hip_caja value) {
 		if (this.hip_caja != value) {

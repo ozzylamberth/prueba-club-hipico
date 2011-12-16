@@ -40,8 +40,12 @@ public class Hip_caballosCriteria extends AbstractORMCriteria {
 		this(orm.HipicoPersistentManager.instance().getSession());
 	}
 	
-	public Hip_caballos_hip_corridaCriteria createHip_caballos_hip_corridaCriteria() {
-		return new Hip_caballos_hip_corridaCriteria(createCriteria("ORM_Hip_caballos_hip_corrida"));
+	public Hip_corridaCriteria createCo_id_carreraCriteria() {
+		return new Hip_corridaCriteria(createCriteria("ORM_Co_id_carrera"));
+	}
+	
+	public Hip_apuestaCriteria createHip_apuestaCriteria() {
+		return new Hip_apuestaCriteria(createCriteria("hip_apuesta"));
 	}
 	
 	public Hip_caballos uniqueHip_caballos() {
