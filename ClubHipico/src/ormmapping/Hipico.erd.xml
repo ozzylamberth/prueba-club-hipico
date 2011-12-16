@@ -9,7 +9,7 @@
       <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
-      <Unique>true</Unique>
+      <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
@@ -55,7 +55,7 @@
       <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
-      <Unique>true</Unique>
+      <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
@@ -90,7 +90,7 @@
       <Length>11</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
-      <Unique>true</Unique>
+      <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
@@ -127,7 +127,7 @@
       <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
-      <Unique>true</Unique>
+      <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
@@ -186,7 +186,7 @@
       <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
-      <Unique>true</Unique>
+      <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
