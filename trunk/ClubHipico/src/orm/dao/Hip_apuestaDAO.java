@@ -17,14 +17,14 @@ import org.orm.*;
 import orm.*;
 
 public interface Hip_apuestaDAO {
-	public Hip_apuesta loadHip_apuestaByORMID(String ap_id_apuesta) throws PersistentException;
-	public Hip_apuesta getHip_apuestaByORMID(String ap_id_apuesta) throws PersistentException;
-	public Hip_apuesta loadHip_apuestaByORMID(String ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException;
-	public Hip_apuesta getHip_apuestaByORMID(String ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException;
-	public Hip_apuesta loadHip_apuestaByORMID(PersistentSession session, String ap_id_apuesta) throws PersistentException;
-	public Hip_apuesta getHip_apuestaByORMID(PersistentSession session, String ap_id_apuesta) throws PersistentException;
-	public Hip_apuesta loadHip_apuestaByORMID(PersistentSession session, String ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException;
-	public Hip_apuesta getHip_apuestaByORMID(PersistentSession session, String ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException;
+	public Hip_apuesta loadHip_apuestaByORMID(int ap_id_apuesta) throws PersistentException;
+	public Hip_apuesta getHip_apuestaByORMID(int ap_id_apuesta) throws PersistentException;
+	public Hip_apuesta loadHip_apuestaByORMID(int ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException;
+	public Hip_apuesta getHip_apuestaByORMID(int ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException;
+	public Hip_apuesta loadHip_apuestaByORMID(PersistentSession session, int ap_id_apuesta) throws PersistentException;
+	public Hip_apuesta getHip_apuestaByORMID(PersistentSession session, int ap_id_apuesta) throws PersistentException;
+	public Hip_apuesta loadHip_apuestaByORMID(PersistentSession session, int ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException;
+	public Hip_apuesta getHip_apuestaByORMID(PersistentSession session, int ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException;
 	public Hip_apuesta[] listHip_apuestaByQuery(String condition, String orderBy) throws PersistentException;
 	public Hip_apuesta[] listHip_apuestaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException;
 	public Hip_apuesta[] listHip_apuestaByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException;

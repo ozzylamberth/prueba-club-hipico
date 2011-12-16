@@ -19,13 +19,13 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class Hip_apuestaCriteria extends AbstractORMCriteria {
-	public final StringExpression ap_id_apuesta;
+	public final IntegerExpression ap_id_apuesta;
 	public final IntegerExpression ap_monto;
 	public final StringExpression ap_tipo;
 	
 	public Hip_apuestaCriteria(Criteria criteria) {
 		super(criteria);
-		ap_id_apuesta = new StringExpression("ap_id_apuesta", this);
+		ap_id_apuesta = new IntegerExpression("ap_id_apuesta", this);
 		ap_monto = new IntegerExpression("ap_monto", this);
 		ap_tipo = new StringExpression("ap_tipo", this);
 	}

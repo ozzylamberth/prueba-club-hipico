@@ -18,7 +18,7 @@ public class Hip_apuesta implements Serializable {
 	public Hip_apuesta() {
 	}
 	
-	private String ap_id_apuesta;
+	private int ap_id_apuesta;
 	
 	private int ap_monto;
 	
@@ -28,15 +28,15 @@ public class Hip_apuesta implements Serializable {
 	
 	private orm.Hip_corrida co_id_carrera;
 	
-	private void setAp_id_apuesta(String value) {
+	private void setAp_id_apuesta(int value) {
 		this.ap_id_apuesta = value;
 	}
 	
-	public String getAp_id_apuesta() {
+	public int getAp_id_apuesta() {
 		return ap_id_apuesta;
 	}
 	
-	public String getORMID() {
+	public int getORMID() {
 		return getAp_id_apuesta();
 	}
 	

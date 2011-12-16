@@ -18,21 +18,21 @@ public class Hip_caja implements Serializable {
 	public Hip_caja() {
 	}
 	
-	private String caj_id_caja;
+	private int caj_id_caja;
 	
 	private int caj_ganancia;
 	
 	private orm.Hip_corrida co_id_carrera;
 	
-	private void setCaj_id_caja(String value) {
+	private void setCaj_id_caja(int value) {
 		this.caj_id_caja = value;
 	}
 	
-	public String getCaj_id_caja() {
+	public int getCaj_id_caja() {
 		return caj_id_caja;
 	}
 	
-	public String getORMID() {
+	public int getORMID() {
 		return getCaj_id_caja();
 	}
 	

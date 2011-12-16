@@ -6,7 +6,7 @@ License Type: Purchased
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="orm.Hip_apuesta" table="hip_apuesta" lazy="false">
-		<id name="ap_id_apuesta" column="ap_id_apuesta" type="string">
+		<id name="ap_id_apuesta" column="ap_id_apuesta" type="integer" unsaved-value="0">
 			<generator class="increment">
 			</generator>
 		</id>

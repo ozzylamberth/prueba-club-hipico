@@ -19,7 +19,7 @@ import java.util.List;
 import orm.*;
 
 public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
-	public Hip_apuesta loadHip_apuestaByORMID(String ap_id_apuesta) throws PersistentException {
+	public Hip_apuesta loadHip_apuestaByORMID(int ap_id_apuesta) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
 			return loadHip_apuestaByORMID(session, ap_id_apuesta);
@@ -30,7 +30,7 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 		}
 	}
 	
-	public Hip_apuesta getHip_apuestaByORMID(String ap_id_apuesta) throws PersistentException {
+	public Hip_apuesta getHip_apuestaByORMID(int ap_id_apuesta) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
 			return getHip_apuestaByORMID(session, ap_id_apuesta);
@@ -41,7 +41,7 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 		}
 	}
 	
-	public Hip_apuesta loadHip_apuestaByORMID(String ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_apuesta loadHip_apuestaByORMID(int ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
 			return loadHip_apuestaByORMID(session, ap_id_apuesta, lockMode);
@@ -52,7 +52,7 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 		}
 	}
 	
-	public Hip_apuesta getHip_apuestaByORMID(String ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_apuesta getHip_apuestaByORMID(int ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
 			return getHip_apuestaByORMID(session, ap_id_apuesta, lockMode);
@@ -63,9 +63,9 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 		}
 	}
 	
-	public Hip_apuesta loadHip_apuestaByORMID(PersistentSession session, String ap_id_apuesta) throws PersistentException {
+	public Hip_apuesta loadHip_apuestaByORMID(PersistentSession session, int ap_id_apuesta) throws PersistentException {
 		try {
-			return (Hip_apuesta) session.load(orm.Hip_apuesta.class, ap_id_apuesta);
+			return (Hip_apuesta) session.load(orm.Hip_apuesta.class, new Integer(ap_id_apuesta));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 		}
 	}
 	
-	public Hip_apuesta getHip_apuestaByORMID(PersistentSession session, String ap_id_apuesta) throws PersistentException {
+	public Hip_apuesta getHip_apuestaByORMID(PersistentSession session, int ap_id_apuesta) throws PersistentException {
 		try {
-			return (Hip_apuesta) session.get(orm.Hip_apuesta.class, ap_id_apuesta);
+			return (Hip_apuesta) session.get(orm.Hip_apuesta.class, new Integer(ap_id_apuesta));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 		}
 	}
 	
-	public Hip_apuesta loadHip_apuestaByORMID(PersistentSession session, String ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_apuesta loadHip_apuestaByORMID(PersistentSession session, int ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Hip_apuesta) session.load(orm.Hip_apuesta.class, ap_id_apuesta, lockMode);
+			return (Hip_apuesta) session.load(orm.Hip_apuesta.class, new Integer(ap_id_apuesta), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 		}
 	}
 	
-	public Hip_apuesta getHip_apuestaByORMID(PersistentSession session, String ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_apuesta getHip_apuestaByORMID(PersistentSession session, int ap_id_apuesta, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Hip_apuesta) session.get(orm.Hip_apuesta.class, ap_id_apuesta, lockMode);
+			return (Hip_apuesta) session.get(orm.Hip_apuesta.class, new Integer(ap_id_apuesta), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
