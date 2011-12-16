@@ -12,6 +12,10 @@ public class ApuestaTest {
 		
 		int monto=2000;
 		System.out.println("resultado: "+new ws.ApuestaSOA().add(monto, "1er lugar", "cab0004", "carr0001"));
+		System.out.println("resultado: "+new ws.ApuestaSOA().add(100, "2er lugar", "cab0004", "carr0001"));
+		System.out.println("resultado: "+new ws.ApuestaSOA().add(1500, "3er lugar", "cab0008", "carr0001"));
+		System.out.println("resultado: "+new ws.ApuestaSOA().add(8000, "1er lugar", "cab0002", "carr0001"));
+		
 		
 	}
 

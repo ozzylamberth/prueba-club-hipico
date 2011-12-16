@@ -39,7 +39,7 @@ public class Hip_corrida implements Serializable {
 	
 	private String co_hora;
 	
-	private orm.Hip_caja hip_caja;
+	private Integer co_ganancia;
 	
 	private java.util.Set ORM_hip_apuesta = new java.util.HashSet();
 	
@@ -71,21 +71,16 @@ public class Hip_corrida implements Serializable {
 		return co_hora;
 	}
 	
-	public void setHip_caja(orm.Hip_caja value) {
-		if (this.hip_caja != value) {
-			orm.Hip_caja lhip_caja = this.hip_caja;
-			this.hip_caja = value;
-			if (value != null) {
-				hip_caja.setCo_id_carrera(this);
-			}
-			else {
-				lhip_caja.setCo_id_carrera(null);
-			}
-		}
+	public void setCo_ganancia(int value) {
+		setCo_ganancia(new Integer(value));
 	}
 	
-	public orm.Hip_caja getHip_caja() {
-		return hip_caja;
+	public void setCo_ganancia(Integer value) {
+		this.co_ganancia = value;
+	}
+	
+	public Integer getCo_ganancia() {
+		return co_ganancia;
 	}
 	
 	private void setORM_Hip_apuesta(java.util.Set value) {

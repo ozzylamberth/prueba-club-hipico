@@ -5,7 +5,7 @@ import org.orm.PersistentException;
 public class CorridaSOA {
 
 	
-	public String add(String co_id_carrera, String co_fecha,String co_hora){
+	public String add(String co_id_carrera, String co_fecha,String co_hora,int co_ganancia){
 		String mensaje="";
 		int resultado=1;
 		

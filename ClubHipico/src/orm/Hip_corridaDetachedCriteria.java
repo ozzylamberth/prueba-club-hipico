@@ -22,12 +22,14 @@ public class Hip_corridaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression co_id_carrera;
 	public final StringExpression co_fecha;
 	public final StringExpression co_hora;
+	public final IntegerExpression co_ganancia;
 	
 	public Hip_corridaDetachedCriteria() {
 		super(orm.Hip_corrida.class, orm.Hip_corridaCriteria.class);
 		co_id_carrera = new StringExpression("co_id_carrera", this.getDetachedCriteria());
 		co_fecha = new StringExpression("co_fecha", this.getDetachedCriteria());
 		co_hora = new StringExpression("co_hora", this.getDetachedCriteria());
+		co_ganancia = new IntegerExpression("co_ganancia", this.getDetachedCriteria());
 	}
 	
 	public Hip_corridaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -35,10 +37,7 @@ public class Hip_corridaDetachedCriteria extends AbstractORMDetachedCriteria {
 		co_id_carrera = new StringExpression("co_id_carrera", this.getDetachedCriteria());
 		co_fecha = new StringExpression("co_fecha", this.getDetachedCriteria());
 		co_hora = new StringExpression("co_hora", this.getDetachedCriteria());
-	}
-	
-	public Hip_cajaDetachedCriteria createHip_cajaCriteria() {
-		return new Hip_cajaDetachedCriteria(createCriteria("hip_caja"));
+		co_ganancia = new IntegerExpression("co_ganancia", this.getDetachedCriteria());
 	}
 	
 	public Hip_apuestaDetachedCriteria createHip_apuestaCriteria() {

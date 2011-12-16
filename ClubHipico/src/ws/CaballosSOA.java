@@ -1,5 +1,8 @@
 package ws;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.orm.PersistentException;
 
 public class CaballosSOA {
@@ -61,5 +64,19 @@ public class CaballosSOA {
 		
 		return mensaje;
 	}//fin metodo add
+	
+	public String get(){
+		String json="";
+		
+		
+		
+//		orm.DAOFactory lDAOFactory = orm.DAOFactory.getDAOFactory();
+//		Collection<CaballosSOAPVO> coleccionCaballos = new ArrayList<CaballosSOAPVO>();
+//        orm.Tan_alumno[] ormAlumno;	
+		
+		return json;
+		
+		
+	}
 
 }//fin clase

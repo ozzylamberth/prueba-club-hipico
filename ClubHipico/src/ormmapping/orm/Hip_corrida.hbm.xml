@@ -12,7 +12,7 @@ License Type: Purchased
 		</id>
 		<property name="co_fecha" column="co_fecha" type="string" length="10" not-null="true" lazy="false"/>
 		<property name="co_hora" column="co_hora" type="string" length="10" not-null="true" lazy="false"/>
-		<one-to-one name="hip_caja" class="orm.Hip_caja" cascade="save-update,lock" property-ref="co_id_carrera" lazy="no-proxy" access="field"/>
+		<property name="co_ganancia" column="co_ganancia" type="integer" length="255" not-null="false" lazy="false"/>
 		<set name="ORM_Hip_apuesta" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="co_id_carrera" not-null="true"/>
 			<one-to-many class="orm.Hip_apuesta"/>

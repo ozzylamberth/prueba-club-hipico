@@ -34,14 +34,6 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
-		System.out.println("Listing Hip_caja...");
-		orm.Hip_caja[] ormHip_cajas = lDAOFactory.getHip_cajaDAO().listHip_cajaByQuery(null, null);
-		length = Math.min(ormHip_cajas.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(ormHip_cajas[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
 	}
 	
 	public void listByCriteria() throws PersistentException  {
@@ -80,20 +72,6 @@ public void listTestData() throws PersistentException {
 			 System.out.println(ormHip_apuestas[i]);
 		}
 		System.out.println(length + " Hip_apuesta record(s) retrieved."); 
-		
-		System.out.println("Listing Hip_caja by Criteria...");
-		orm.Hip_cajaCriteria hip_cajaCriteria = new orm.Hip_cajaCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//hip_cajaCriteria.caj_id_caja.eq();
-		//orm.Hip_corridaCriteria hip_cajaCriteria_Hip_corrida = hip_cajaCriteria.createCo_id_carreraCriteria();
-		//hip_cajaCriteria_Hip_corrida.co_id_carrera.eq();
-		hip_cajaCriteria.setMaxResults(ROW_COUNT);
-		orm.Hip_caja[] ormHip_cajas = hip_cajaCriteria.listHip_caja();
-		length =ormHip_cajas== null ? 0 : Math.min(ormHip_cajas.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(ormHip_cajas[i]);
-		}
-		System.out.println(length + " Hip_caja record(s) retrieved."); 
 		
 	}
 	

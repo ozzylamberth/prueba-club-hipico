@@ -9,6 +9,7 @@ public class ApuestaSOA {
 		
 		String mensaje="";
 		int resultado=1;
+		int ganancia=0;
 		
 		if(ap_monto==0 || ap_tipo==null || ap_tipo.equals("") ||
 				ca_id_caballo.equals("") || ca_id_caballo==null || co_id_carrera.equals("") || co_id_carrera==null){
@@ -41,12 +42,15 @@ public class ApuestaSOA {
 				
 				orm.dao.Hip_corridaDAO lormCorridaDAO = lDAOFactory.getHip_corridaDAO();
 				orm.Hip_corrida lormHip_corrida = lormCorridaDAO.getHip_corridaByORMID(co_id_carrera);
+				
+				
+				ganancia=lormHip_corrida.getCo_ganancia()+ap_monto;
+				lormHip_corrida.setCo_ganancia(ganancia);	
+				System.out.println("valor corrida"+lormHip_corrida.getCo_ganancia());
+							
 				lormCorridaDAO.save(lormHip_corrida);
 				
-				//instanciando objeto caja
-				
-				orm.dao.Hip_cajaDAO lormHip_cajaDAO = lDAOFactory.getHip_cajaDAO();
-				orm.Hip_caja lormHip_caja = lormHip_cajaDAO.getHip_cajaByORMID());
+
 				
 				
 				//seteando objeto apuesta

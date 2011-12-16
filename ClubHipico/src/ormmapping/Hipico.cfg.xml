@@ -25,7 +25,6 @@ License Type: Purchased
 		<!-- mapping files -->
 		<mapping resource="ormmapping/orm/Hip_apuesta.hbm.xml" />
 		<mapping resource="ormmapping/orm/Hip_caballos.hbm.xml" />
-		<mapping resource="ormmapping/orm/Hip_caja.hbm.xml" />
 		<mapping resource="ormmapping/orm/Hip_corrida.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

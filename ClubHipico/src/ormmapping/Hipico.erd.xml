@@ -81,6 +81,17 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="co_ganancia">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
   </Entity>
   <Entity name="hip_apuesta">
     <Column name="ap_id_apuesta">
@@ -141,52 +152,6 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="hip_caja">
-    <Column name="caj_id_caja">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>increment</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="caj_ganancia">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>255</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="co_id_carrera">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>hip_corrida.co_id_carrera</ReferencedColumn>
-      <Type>27</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-  </Entity>
-  <ForeignKey name="FKhip_caja451220">
-    <ReferenceTable>hip_caja</ReferenceTable>
-    <ReferencedTable>hip_corrida</ReferencedTable>
-    <Columns>
-      <Column>co_id_carrera</Column>
-    </Columns>
-    <RefColumns>
-      <Column>co_id_carrera</Column>
-    </RefColumns>
-  </ForeignKey>
   <ForeignKey name="FKhip_apuest882214">
     <ReferenceTable>hip_apuesta</ReferenceTable>
     <ReferencedTable>hip_caballos</ReferencedTable>

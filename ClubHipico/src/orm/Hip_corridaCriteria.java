@@ -22,12 +22,14 @@ public class Hip_corridaCriteria extends AbstractORMCriteria {
 	public final StringExpression co_id_carrera;
 	public final StringExpression co_fecha;
 	public final StringExpression co_hora;
+	public final IntegerExpression co_ganancia;
 	
 	public Hip_corridaCriteria(Criteria criteria) {
 		super(criteria);
 		co_id_carrera = new StringExpression("co_id_carrera", this);
 		co_fecha = new StringExpression("co_fecha", this);
 		co_hora = new StringExpression("co_hora", this);
+		co_ganancia = new IntegerExpression("co_ganancia", this);
 	}
 	
 	public Hip_corridaCriteria(PersistentSession session) {
@@ -36,10 +38,6 @@ public class Hip_corridaCriteria extends AbstractORMCriteria {
 	
 	public Hip_corridaCriteria() throws PersistentException {
 		this(orm.HipicoPersistentManager.instance().getSession());
-	}
-	
-	public Hip_cajaCriteria createHip_cajaCriteria() {
-		return new Hip_cajaCriteria(createCriteria("hip_caja"));
 	}
 	
 	public Hip_apuestaCriteria createHip_apuestaCriteria() {

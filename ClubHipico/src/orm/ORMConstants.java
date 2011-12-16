@@ -20,10 +20,6 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_HIP_CABALLOS_HIP_APUESTA = 318269347;
 	
-	final int KEY_HIP_CAJA_CO_ID_CARRERA = 537233963;
-	
 	final int KEY_HIP_CORRIDA_HIP_APUESTA = -532929540;
-	
-	final int KEY_HIP_CORRIDA_HIP_CAJA = -54036806;
 	
 }
