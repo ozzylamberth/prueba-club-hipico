@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:apuestasoa="services.apuestasoa.*"
+			   minWidth="955" minHeight="600">
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+			protected function button_clickHandler(event:MouseEvent):void
+			{
+				var monto:Number=0;
+				
+				monto=parseInt(ap_monto.text);
+				
+				addResult.token = apuestaSOA.add(/*Enter value(s) for */ monto, ap_tipo.text, ca_id_caballo.text, co_id_carrera.text);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:CallResponder id="addResult"/>
+		<apuestasoa:ApuestaSOA id="apuestaSOA"
+							   fault="Alert.show(event.fault.faultString + '\n' + event.fault.faultDetail)"
+							   showBusyCursor="true"/>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<mx:TabNavigator x="186" y="63" width="572" height="388">
+		<s:NavigatorContent width="100%" height="100%" label="Ingresar Apuesta">
+			<s:Label x="133" y="37" text="Monto:"/>
+			<s:Label x="96" y="73" text="Tipo Apuesta:"/>
+			<s:Label x="113" y="115" text="ID Caballo:"/>
+			<s:Label x="113" y="169" text="ID Carrera:"/>
+			<s:TextInput id="ap_monto" x="217" y="27"/>
+			<s:TextInput id="ap_tipo" x="217" y="66"/>
+			<s:TextInput id="ca_id_caballo" x="217" y="105"/>
+			<s:TextInput id="co_id_carrera" x="217" y="159"/>
+			<s:Label id="label2" x="79" y="232" text="{addResult.lastResult}"/>
+			<s:Button id="button" x="251" y="256" label="Ingresar" click="button_clickHandler(event)"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Terminar Carrera">
+		</s:NavigatorContent>
+	</mx:TabNavigator>
+</s:Application>
