@@ -21,24 +21,28 @@ import org.orm.criteria.*;
 public class Hip_apuestaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression ap_id_apuesta;
 	public final IntegerExpression ap_monto;
-	public final IntegerExpression ap_tipo;
+	public final StringExpression ap_tipo;
 	
 	public Hip_apuestaDetachedCriteria() {
 		super(orm.Hip_apuesta.class, orm.Hip_apuestaCriteria.class);
 		ap_id_apuesta = new StringExpression("ap_id_apuesta", this.getDetachedCriteria());
 		ap_monto = new IntegerExpression("ap_monto", this.getDetachedCriteria());
-		ap_tipo = new IntegerExpression("ap_tipo", this.getDetachedCriteria());
+		ap_tipo = new StringExpression("ap_tipo", this.getDetachedCriteria());
 	}
 	
 	public Hip_apuestaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, orm.Hip_apuestaCriteria.class);
 		ap_id_apuesta = new StringExpression("ap_id_apuesta", this.getDetachedCriteria());
 		ap_monto = new IntegerExpression("ap_monto", this.getDetachedCriteria());
-		ap_tipo = new IntegerExpression("ap_tipo", this.getDetachedCriteria());
+		ap_tipo = new StringExpression("ap_tipo", this.getDetachedCriteria());
 	}
 	
-	public Hip_caballos_hip_corridaDetachedCriteria createCa_id_caballoCriteria() {
-		return new Hip_caballos_hip_corridaDetachedCriteria(createCriteria("ca_id_caballo"));
+	public Hip_caballosDetachedCriteria createCa_id_caballoCriteria() {
+		return new Hip_caballosDetachedCriteria(createCriteria("ca_id_caballo"));
+	}
+	
+	public Hip_corridaDetachedCriteria createCo_id_carreraCriteria() {
+		return new Hip_corridaDetachedCriteria(createCriteria("co_id_carrera"));
 	}
 	
 	public Hip_apuesta uniqueHip_apuesta(PersistentSession session) {

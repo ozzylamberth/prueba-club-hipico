@@ -18,10 +18,6 @@ public class RetrieveAndUpdateHipicoData {
 			orm.Hip_corrida lormHip_corrida = lormHip_corridaDAO.loadHip_corridaByQuery(null, null);
 			// Update the properties of the persistent object
 			lormHip_corridaDAO.save(lormHip_corrida);
-			orm.dao.Hip_caballos_hip_corridaDAO lormHip_caballos_hip_corridaDAO = lDAOFactory.getHip_caballos_hip_corridaDAO();
-			orm.Hip_caballos_hip_corrida lormHip_caballos_hip_corrida = lormHip_caballos_hip_corridaDAO.loadHip_caballos_hip_corridaByQuery(null, null);
-			// Update the properties of the persistent object
-			lormHip_caballos_hip_corridaDAO.save(lormHip_caballos_hip_corrida);
 			orm.dao.Hip_apuestaDAO lormHip_apuestaDAO = lDAOFactory.getHip_apuestaDAO();
 			orm.Hip_apuesta lormHip_apuesta = lormHip_apuestaDAO.loadHip_apuestaByQuery(null, null);
 			// Update the properties of the persistent object
@@ -50,13 +46,6 @@ public class RetrieveAndUpdateHipicoData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//hip_corridaCriteria.co_id_carrera.eq();
 		System.out.println(hip_corridaCriteria.uniqueHip_corrida());
-		
-		System.out.println("Retrieving Hip_caballos_hip_corrida by Hip_caballos_hip_corridaCriteria");
-		orm.Hip_caballos_hip_corridaCriteria hip_caballos_hip_corridaCriteria = new orm.Hip_caballos_hip_corridaCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//hip_caballos_hip_corridaCriteria.ca_id_caballo.eq();
-		//hip_caballos_hip_corridaCriteria.co_id_carrera.eq();
-		System.out.println(hip_caballos_hip_corridaCriteria.uniqueHip_caballos_hip_corrida());
 		
 		System.out.println("Retrieving Hip_apuesta by Hip_apuestaCriteria");
 		orm.Hip_apuestaCriteria hip_apuestaCriteria = new orm.Hip_apuestaCriteria();

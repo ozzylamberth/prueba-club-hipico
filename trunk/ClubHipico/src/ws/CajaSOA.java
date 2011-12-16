@@ -38,7 +38,7 @@ public class CajaSOA {
 				//setear objeto caja
 				
 				lormHip_caja.setCaj_id_caja(caj_id_caja);
-				lormHip_caja.setGanancia(caj_ganancia);
+				lormHip_caja.setCaj_ganancia(caj_ganancia);
 				lormHip_caja.setCo_id_carrera(lormHip_corrida);
 				
 				// guargar objeto

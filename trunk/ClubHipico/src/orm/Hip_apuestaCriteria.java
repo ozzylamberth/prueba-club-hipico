@@ -21,13 +21,13 @@ import org.orm.criteria.*;
 public class Hip_apuestaCriteria extends AbstractORMCriteria {
 	public final StringExpression ap_id_apuesta;
 	public final IntegerExpression ap_monto;
-	public final IntegerExpression ap_tipo;
+	public final StringExpression ap_tipo;
 	
 	public Hip_apuestaCriteria(Criteria criteria) {
 		super(criteria);
 		ap_id_apuesta = new StringExpression("ap_id_apuesta", this);
 		ap_monto = new IntegerExpression("ap_monto", this);
-		ap_tipo = new IntegerExpression("ap_tipo", this);
+		ap_tipo = new StringExpression("ap_tipo", this);
 	}
 	
 	public Hip_apuestaCriteria(PersistentSession session) {
@@ -38,8 +38,12 @@ public class Hip_apuestaCriteria extends AbstractORMCriteria {
 		this(orm.HipicoPersistentManager.instance().getSession());
 	}
 	
-	public Hip_caballos_hip_corridaCriteria createCa_id_caballoCriteria() {
-		return new Hip_caballos_hip_corridaCriteria(createCriteria("ca_id_caballo"));
+	public Hip_caballosCriteria createCa_id_caballoCriteria() {
+		return new Hip_caballosCriteria(createCriteria("ca_id_caballo"));
+	}
+	
+	public Hip_corridaCriteria createCo_id_carreraCriteria() {
+		return new Hip_corridaCriteria(createCriteria("co_id_carrera"));
 	}
 	
 	public Hip_apuesta uniqueHip_apuesta() {

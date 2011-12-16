@@ -282,7 +282,11 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 	public boolean deleteAndDissociate(orm.Hip_apuesta hip_apuesta)throws PersistentException {
 		try {
 			if(hip_apuesta.getCa_id_caballo() != null) {
-				hip_apuesta.getCa_id_caballo().hip_apuesta.remove(hip_apuesta);
+				hip_apuesta.getCa_id_caballo().setHip_apuesta(null);
+			}
+			
+			if(hip_apuesta.getCo_id_carrera() != null) {
+				hip_apuesta.getCo_id_carrera().setHip_apuesta(null);
 			}
 			
 			return delete(hip_apuesta);
@@ -296,7 +300,11 @@ public class Hip_apuestaDAOImpl implements orm.dao.Hip_apuestaDAO {
 	public boolean deleteAndDissociate(orm.Hip_apuesta hip_apuesta, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if(hip_apuesta.getCa_id_caballo() != null) {
-				hip_apuesta.getCa_id_caballo().hip_apuesta.remove(hip_apuesta);
+				hip_apuesta.getCa_id_caballo().setHip_apuesta(null);
+			}
+			
+			if(hip_apuesta.getCo_id_carrera() != null) {
+				hip_apuesta.getCo_id_carrera().setHip_apuesta(null);
 			}
 			
 			try {

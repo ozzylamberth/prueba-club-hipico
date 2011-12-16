@@ -20,7 +20,7 @@ public class Hip_caja implements Serializable {
 	
 	private String caj_id_caja;
 	
-	private int ganancia;
+	private int caj_ganancia;
 	
 	private orm.Hip_corrida co_id_carrera;
 	
@@ -36,12 +36,12 @@ public class Hip_caja implements Serializable {
 		return getCaj_id_caja();
 	}
 	
-	public void setGanancia(int value) {
-		this.ganancia = value;
+	public void setCaj_ganancia(int value) {
+		this.caj_ganancia = value;
 	}
 	
-	public int getGanancia() {
-		return ganancia;
+	public int getCaj_ganancia() {
+		return caj_ganancia;
 	}
 	
 	public void setCo_id_carrera(orm.Hip_corrida value) {

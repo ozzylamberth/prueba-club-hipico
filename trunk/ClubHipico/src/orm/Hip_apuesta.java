@@ -18,26 +18,15 @@ public class Hip_apuesta implements Serializable {
 	public Hip_apuesta() {
 	}
 	
-	private void this_setOwner(Object owner, int key) {
-		if (key == orm.ORMConstants.KEY_HIP_APUESTA_CA_ID_CABALLO) {
-			this.ca_id_caballo = (orm.Hip_caballos_hip_corrida) owner;
-		}
-	}
-	
-	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
-		public void setOwner(Object owner, int key) {
-			this_setOwner(owner, key);
-		}
-		
-	};
-	
 	private String ap_id_apuesta;
 	
 	private int ap_monto;
 	
-	private int ap_tipo;
+	private String ap_tipo;
 	
-	private orm.Hip_caballos_hip_corrida ca_id_caballo;
+	private orm.Hip_caballos ca_id_caballo;
+	
+	private orm.Hip_corrida co_id_carrera;
 	
 	public void setAp_id_apuesta(String value) {
 		this.ap_id_apuesta = value;
@@ -59,35 +48,45 @@ public class Hip_apuesta implements Serializable {
 		return ap_monto;
 	}
 	
-	public void setAp_tipo(int value) {
+	public void setAp_tipo(String value) {
 		this.ap_tipo = value;
 	}
 	
-	public int getAp_tipo() {
+	public String getAp_tipo() {
 		return ap_tipo;
 	}
 	
-	public void setCa_id_caballo(orm.Hip_caballos_hip_corrida value) {
-		if (ca_id_caballo != null) {
-			ca_id_caballo.hip_apuesta.remove(this);
+	public void setCo_id_carrera(orm.Hip_corrida value) {
+		if (this.co_id_carrera != value) {
+			orm.Hip_corrida lco_id_carrera = this.co_id_carrera;
+			this.co_id_carrera = value;
+			if (value != null) {
+				co_id_carrera.setHip_apuesta(this);
+			}
+			else {
+				lco_id_carrera.setHip_apuesta(null);
+			}
 		}
-		if (value != null) {
-			value.hip_apuesta.add(this);
+	}
+	
+	public orm.Hip_corrida getCo_id_carrera() {
+		return co_id_carrera;
+	}
+	
+	public void setCa_id_caballo(orm.Hip_caballos value) {
+		if (this.ca_id_caballo != value) {
+			orm.Hip_caballos lca_id_caballo = this.ca_id_caballo;
+			this.ca_id_caballo = value;
+			if (value != null) {
+				ca_id_caballo.setHip_apuesta(this);
+			}
+			else {
+				lca_id_caballo.setHip_apuesta(null);
+			}
 		}
 	}
 	
-	public orm.Hip_caballos_hip_corrida getCa_id_caballo() {
-		return ca_id_caballo;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Ca_id_caballo(orm.Hip_caballos_hip_corrida value) {
-		this.ca_id_caballo = value;
-	}
-	
-	private orm.Hip_caballos_hip_corrida getORM_Ca_id_caballo() {
+	public orm.Hip_caballos getCa_id_caballo() {
 		return ca_id_caballo;
 	}
 	
