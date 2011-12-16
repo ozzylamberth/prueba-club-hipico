@@ -13,5 +13,17 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/gson-1.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/axis.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/commons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/gwt-dev.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/javax.wsdl_1.6.2.v201012040545.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/org.apache.commons.logging_1.0.4.v201101211617.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/orm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/saaj.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erwin/Dropbox/PDS/workspace/libs/wsdl4j.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
