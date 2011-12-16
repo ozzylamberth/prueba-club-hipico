@@ -19,12 +19,12 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class Hip_cajaCriteria extends AbstractORMCriteria {
-	public final StringExpression caj_id_caja;
+	public final IntegerExpression caj_id_caja;
 	public final IntegerExpression caj_ganancia;
 	
 	public Hip_cajaCriteria(Criteria criteria) {
 		super(criteria);
-		caj_id_caja = new StringExpression("caj_id_caja", this);
+		caj_id_caja = new IntegerExpression("caj_id_caja", this);
 		caj_ganancia = new IntegerExpression("caj_ganancia", this);
 	}
 	

@@ -123,7 +123,7 @@
     <Column name="ap_id_apuesta">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
+      <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>
@@ -182,7 +182,7 @@
     <Column name="caj_id_caja">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
+      <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>increment</IDGenerator>

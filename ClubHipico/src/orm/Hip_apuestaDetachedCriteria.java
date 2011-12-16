@@ -19,20 +19,20 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class Hip_apuestaDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final StringExpression ap_id_apuesta;
+	public final IntegerExpression ap_id_apuesta;
 	public final IntegerExpression ap_monto;
 	public final StringExpression ap_tipo;
 	
 	public Hip_apuestaDetachedCriteria() {
 		super(orm.Hip_apuesta.class, orm.Hip_apuestaCriteria.class);
-		ap_id_apuesta = new StringExpression("ap_id_apuesta", this.getDetachedCriteria());
+		ap_id_apuesta = new IntegerExpression("ap_id_apuesta", this.getDetachedCriteria());
 		ap_monto = new IntegerExpression("ap_monto", this.getDetachedCriteria());
 		ap_tipo = new StringExpression("ap_tipo", this.getDetachedCriteria());
 	}
 	
 	public Hip_apuestaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, orm.Hip_apuestaCriteria.class);
-		ap_id_apuesta = new StringExpression("ap_id_apuesta", this.getDetachedCriteria());
+		ap_id_apuesta = new IntegerExpression("ap_id_apuesta", this.getDetachedCriteria());
 		ap_monto = new IntegerExpression("ap_monto", this.getDetachedCriteria());
 		ap_tipo = new StringExpression("ap_tipo", this.getDetachedCriteria());
 	}

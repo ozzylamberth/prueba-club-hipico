@@ -19,7 +19,7 @@ import java.util.List;
 import orm.*;
 
 public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
-	public Hip_caja loadHip_cajaByORMID(String caj_id_caja) throws PersistentException {
+	public Hip_caja loadHip_cajaByORMID(int caj_id_caja) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
 			return loadHip_cajaByORMID(session, caj_id_caja);
@@ -30,7 +30,7 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja getHip_cajaByORMID(String caj_id_caja) throws PersistentException {
+	public Hip_caja getHip_cajaByORMID(int caj_id_caja) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
 			return getHip_cajaByORMID(session, caj_id_caja);
@@ -41,7 +41,7 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja loadHip_cajaByORMID(String caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_caja loadHip_cajaByORMID(int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
 			return loadHip_cajaByORMID(session, caj_id_caja, lockMode);
@@ -52,7 +52,7 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja getHip_cajaByORMID(String caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_caja getHip_cajaByORMID(int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = orm.HipicoPersistentManager.instance().getSession();
 			return getHip_cajaByORMID(session, caj_id_caja, lockMode);
@@ -63,9 +63,9 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja loadHip_cajaByORMID(PersistentSession session, String caj_id_caja) throws PersistentException {
+	public Hip_caja loadHip_cajaByORMID(PersistentSession session, int caj_id_caja) throws PersistentException {
 		try {
-			return (Hip_caja) session.load(orm.Hip_caja.class, caj_id_caja);
+			return (Hip_caja) session.load(orm.Hip_caja.class, new Integer(caj_id_caja));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja getHip_cajaByORMID(PersistentSession session, String caj_id_caja) throws PersistentException {
+	public Hip_caja getHip_cajaByORMID(PersistentSession session, int caj_id_caja) throws PersistentException {
 		try {
-			return (Hip_caja) session.get(orm.Hip_caja.class, caj_id_caja);
+			return (Hip_caja) session.get(orm.Hip_caja.class, new Integer(caj_id_caja));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja loadHip_cajaByORMID(PersistentSession session, String caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_caja loadHip_cajaByORMID(PersistentSession session, int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Hip_caja) session.load(orm.Hip_caja.class, caj_id_caja, lockMode);
+			return (Hip_caja) session.load(orm.Hip_caja.class, new Integer(caj_id_caja), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class Hip_cajaDAOImpl implements orm.dao.Hip_cajaDAO {
 		}
 	}
 	
-	public Hip_caja getHip_cajaByORMID(PersistentSession session, String caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
+	public Hip_caja getHip_cajaByORMID(PersistentSession session, int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Hip_caja) session.get(orm.Hip_caja.class, caj_id_caja, lockMode);
+			return (Hip_caja) session.get(orm.Hip_caja.class, new Integer(caj_id_caja), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

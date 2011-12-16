@@ -17,14 +17,14 @@ import org.orm.*;
 import orm.*;
 
 public interface Hip_cajaDAO {
-	public Hip_caja loadHip_cajaByORMID(String caj_id_caja) throws PersistentException;
-	public Hip_caja getHip_cajaByORMID(String caj_id_caja) throws PersistentException;
-	public Hip_caja loadHip_cajaByORMID(String caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException;
-	public Hip_caja getHip_cajaByORMID(String caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException;
-	public Hip_caja loadHip_cajaByORMID(PersistentSession session, String caj_id_caja) throws PersistentException;
-	public Hip_caja getHip_cajaByORMID(PersistentSession session, String caj_id_caja) throws PersistentException;
-	public Hip_caja loadHip_cajaByORMID(PersistentSession session, String caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException;
-	public Hip_caja getHip_cajaByORMID(PersistentSession session, String caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException;
+	public Hip_caja loadHip_cajaByORMID(int caj_id_caja) throws PersistentException;
+	public Hip_caja getHip_cajaByORMID(int caj_id_caja) throws PersistentException;
+	public Hip_caja loadHip_cajaByORMID(int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException;
+	public Hip_caja getHip_cajaByORMID(int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException;
+	public Hip_caja loadHip_cajaByORMID(PersistentSession session, int caj_id_caja) throws PersistentException;
+	public Hip_caja getHip_cajaByORMID(PersistentSession session, int caj_id_caja) throws PersistentException;
+	public Hip_caja loadHip_cajaByORMID(PersistentSession session, int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException;
+	public Hip_caja getHip_cajaByORMID(PersistentSession session, int caj_id_caja, org.hibernate.LockMode lockMode) throws PersistentException;
 	public Hip_caja[] listHip_cajaByQuery(String condition, String orderBy) throws PersistentException;
 	public Hip_caja[] listHip_cajaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException;
 	public Hip_caja[] listHip_cajaByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException;

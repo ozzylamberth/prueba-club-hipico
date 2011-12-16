@@ -6,7 +6,7 @@ License Type: Purchased
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="orm.Hip_caja" table="hip_caja" lazy="false">
-		<id name="caj_id_caja" column="caj_id_caja" type="string">
+		<id name="caj_id_caja" column="caj_id_caja" type="integer" unsaved-value="0">
 			<generator class="increment">
 			</generator>
 		</id>
