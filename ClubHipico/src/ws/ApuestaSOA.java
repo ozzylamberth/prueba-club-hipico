@@ -21,7 +21,7 @@ public class ApuestaSOA {
 			
 			if(resultado==1){
 				
-				
+				try {
 				orm.DAOFactory lDAOFactory = orm.DAOFactory.getDAOFactory();
 				
 				
@@ -53,8 +53,8 @@ public class ApuestaSOA {
 				lormHip_apuesta.setCa_id_caballo(lormHip_caballos);
 				lormHip_apuesta.setCo_id_carrera(lormHip_corrida);
 				
-				try {
-					lormCorridaDAO.save(lormHip_corrida);
+				
+					lormHip_apuestaDAO.save(lormHip_apuesta);
 					mensaje="apuesta realizada";
 					
 				} catch (PersistentException e) {

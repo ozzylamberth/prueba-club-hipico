@@ -41,11 +41,7 @@ public class Hip_caballosDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public Hip_apuestaDetachedCriteria createHip_apuestaCriteria() {
-		return new Hip_apuestaDetachedCriteria(createCriteria("hip_apuesta"));
-	}
-	
-	public Hip_caballo_carreraDetachedCriteria createHip_caballo_carreraCriteria() {
-		return new Hip_caballo_carreraDetachedCriteria(createCriteria("hip_caballo_carrera"));
+		return new Hip_apuestaDetachedCriteria(createCriteria("ORM_Hip_apuesta"));
 	}
 	
 	public Hip_caballos uniqueHip_caballos(PersistentSession session) {

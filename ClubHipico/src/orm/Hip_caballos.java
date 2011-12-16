@@ -18,6 +18,21 @@ public class Hip_caballos implements Serializable {
 	public Hip_caballos() {
 	}
 	
+	private java.util.Set this_getSet (int key) {
+		if (key == orm.ORMConstants.KEY_HIP_CABALLOS_HIP_APUESTA) {
+			return ORM_hip_apuesta;
+		}
+		
+		return null;
+	}
+	
+	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
+		public java.util.Set getSet(int key) {
+			return this_getSet(key);
+		}
+		
+	};
+	
 	private String ca_id_caballo;
 	
 	private String ca_nombre;
@@ -26,9 +41,7 @@ public class Hip_caballos implements Serializable {
 	
 	private int ca_edad;
 	
-	private orm.Hip_apuesta hip_apuesta;
-	
-	private orm.Hip_caballo_carrera hip_caballo_carrera;
+	private java.util.Set ORM_hip_apuesta = new java.util.HashSet();
 	
 	public void setCa_id_caballo(String value) {
 		this.ca_id_caballo = value;
@@ -66,39 +79,15 @@ public class Hip_caballos implements Serializable {
 		return ca_edad;
 	}
 	
-	public void setHip_apuesta(orm.Hip_apuesta value) {
-		if (this.hip_apuesta != value) {
-			orm.Hip_apuesta lhip_apuesta = this.hip_apuesta;
-			this.hip_apuesta = value;
-			if (value != null) {
-				hip_apuesta.setCa_id_caballo(this);
-			}
-			else {
-				lhip_apuesta.setCa_id_caballo(null);
-			}
-		}
+	private void setORM_Hip_apuesta(java.util.Set value) {
+		this.ORM_hip_apuesta = value;
 	}
 	
-	public orm.Hip_apuesta getHip_apuesta() {
-		return hip_apuesta;
+	private java.util.Set getORM_Hip_apuesta() {
+		return ORM_hip_apuesta;
 	}
 	
-	public void setHip_caballo_carrera(orm.Hip_caballo_carrera value) {
-		if (this.hip_caballo_carrera != value) {
-			orm.Hip_caballo_carrera lhip_caballo_carrera = this.hip_caballo_carrera;
-			this.hip_caballo_carrera = value;
-			if (value != null) {
-				hip_caballo_carrera.setCa_id_caballo(this);
-			}
-			else {
-				lhip_caballo_carrera.setCa_id_caballo(null);
-			}
-		}
-	}
-	
-	public orm.Hip_caballo_carrera getHip_caballo_carrera() {
-		return hip_caballo_carrera;
-	}
+	public final orm.Hip_apuestaSetCollection hip_apuesta = new orm.Hip_apuestaSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_HIP_CABALLOS_HIP_APUESTA, orm.ORMConstants.KEY_HIP_APUESTA_CA_ID_CABALLO, orm.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getCa_id_caballo());
