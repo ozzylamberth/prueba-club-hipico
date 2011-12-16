@@ -1,6 +1,12 @@
 package ws;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import org.orm.PersistentException;
+import com.google.gson.Gson;
+
+import SOAPVO.CaballosSOAPVO;
+import SOAPVO.CorridaSOAPVO;
 
 public class CorridaSOA {
 
@@ -32,6 +38,7 @@ public class CorridaSOA {
 				lormHip_corrida.setCo_id_carrera(co_id_carrera);
 				lormHip_corrida.setCo_fecha(co_fecha);
 				lormHip_corrida.setCo_hora(co_hora);
+				lormHip_corrida.setCo_ganancia(co_ganancia);
 				
 				//guardando cambios
 				
@@ -53,5 +60,44 @@ public class CorridaSOA {
 		
 		
 		return mensaje;
-	}
+	}// fin metodo add
+	
+	public String get(String co_id_carrera){
+		String json=null;
+		
+		orm.DAOFactory lDAOFactory = orm.DAOFactory.getDAOFactory();
+		
+		Collection<CorridaSOAPVO> coleccionCorrida = new ArrayList<CorridaSOAPVO>();
+		orm.Hip_corrida[] ormCorrida;
+		
+        if((co_id_carrera== null) || (co_id_carrera == (""))){
+        	
+        	json = "0";        	
+        }
+        else{
+        	
+        	try {
+				ormCorrida = lDAOFactory.getHip_corridaDAO().listHip_corridaByQuery("co_id_carrera like'%"+co_id_carrera+"%'", null);
+				
+				for (int i = 0; i < ormCorrida.length; i++ ){
+                    CorridaSOAPVO corridaencontrada = CorridaSOAPVO.crearCorridaSOAPVO(ormCorrida[i]);
+                    coleccionCorrida.add(corridaencontrada);
+                    System.out.println("Corrida :"+ormCorrida[i]);
+                    
+				
+				}
+				
+                Gson gson = new Gson();
+                json = gson.toJson(coleccionCorrida);
+                
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+        }
+
+		return json;
+	} 
+	
 }

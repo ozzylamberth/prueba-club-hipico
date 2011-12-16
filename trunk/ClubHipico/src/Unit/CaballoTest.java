@@ -7,7 +7,7 @@ public class CaballoTest {
 	 */
 	public static void main(String[] args) {
 	
-		
+		//ingresar caballos
 		System.out.println("Resultado: "+new ws.CaballosSOA().add("cab0001", "garoto", "masculino", 3));
 		System.out.println("Resultado: "+new ws.CaballosSOA().add("cab0002", "dormilon", "masculino", 3));
 		System.out.println("Resultado: "+new ws.CaballosSOA().add("cab0003", "golosin", "masculino", 3));
@@ -23,6 +23,11 @@ public class CaballoTest {
 		System.out.println("Resultado: "+new ws.CaballosSOA().add("cab0013", "carita", "femenino", 3));
 		System.out.println("Resultado: "+new ws.CaballosSOA().add("cab0014", "aguita", "femenino", 3));
 		System.out.println("Resultado: "+new ws.CaballosSOA().add("cab0015", "blanki", "femenino", 3));
+		
+		//mostrar caballos
+		
+		
+		//System.out.println("Resultado: "+new ws.CaballosSOA().get("cab"));
 		
 	}
 

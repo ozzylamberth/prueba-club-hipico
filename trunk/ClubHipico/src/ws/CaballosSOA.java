@@ -2,8 +2,9 @@ package ws;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
 import org.orm.PersistentException;
+import com.google.gson.Gson;
+import SOAPVO.CaballosSOAPVO;
 
 public class CaballosSOA {
 	
@@ -65,14 +66,47 @@ public class CaballosSOA {
 		return mensaje;
 	}//fin metodo add
 	
-	public String get(){
+	public String get(String ca_id_caballo){
 		String json="";
 		
 		
 		
-//		orm.DAOFactory lDAOFactory = orm.DAOFactory.getDAOFactory();
-//		Collection<CaballosSOAPVO> coleccionCaballos = new ArrayList<CaballosSOAPVO>();
-//        orm.Tan_alumno[] ormAlumno;	
+		orm.DAOFactory lDAOFactory = orm.DAOFactory.getDAOFactory();
+		Collection<CaballosSOAPVO> coleccionCaballos = new ArrayList<CaballosSOAPVO>();
+        orm.Hip_caballos[] ormCaballos;
+        
+        
+        if((ca_id_caballo== null) || (ca_id_caballo == (""))){
+        	
+        	json = "0";        	
+        }
+        else{
+        	
+        	
+        	try {
+				ormCaballos = lDAOFactory.getHip_caballosDAO().listHip_caballosByQuery("ca_id_caballo like'%"+ca_id_caballo+"%'", null);
+ 
+				for (int i = 0; i < ormCaballos.length; i++ ){
+                    CaballosSOAPVO caballoencontrado = CaballosSOAPVO.crearCaballosSOAPVO(ormCaballos[i]);
+                    coleccionCaballos.add(caballoencontrado);
+                    System.out.println("Caballos :"+ormCaballos[i]);
+				
+				}
+				
+                Gson gson = new Gson();
+                json = gson.toJson(coleccionCaballos);
+				
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	
+        	
+        	
+        }
+        
+        
+        
 		
 		return json;
 		
