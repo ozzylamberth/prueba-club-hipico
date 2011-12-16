@@ -46,11 +46,15 @@ public class CierreCarreraSOA {
 
 				
 	        	for (int i = 0; i < ormApuesta.length; i++ ){
+	        		
+	        		//guardando coleccion de apuestas encontradas
 	                ApuestaSOAPVO apuestaEncontrada  = ApuestaSOAPVO.crearApuestaSOAPVO(ormApuesta[i]);
-	                coleccionApuesta.add(apuestaEncontrada );
-	                System.out.println("apuesta :"+ormApuesta[i]);
-	                cantidadGanadores=cantidadGanadores+1;
-        	
+	                
+	                
+	                	coleccionApuesta.add(apuestaEncontrada );
+	                	System.out.println("apuesta :"+ormApuesta[i]);
+	                	cantidadGanadores=cantidadGanadores+1;
+	                
 	        		}
 	        	System.out.println("cantidad ganadores:"+cantidadGanadores);
 	        	
@@ -64,7 +68,8 @@ public class CierreCarreraSOA {
 	        	pozo=ganancia*0.9;
 	        	ganancia=ganancia*0.1;
 	        	int total = (int) Math.floor(ganancia);
-	        	
+
+	        	//guardando totales
 	        	lormCorrida.setCo_ganancia(total);
 	        	lormCorridaDAO.save(lormCorrida);
 	        	
