@@ -1,7 +1,8 @@
 package ws;
 
 import org.orm.PersistentException;
-
+import java.lang.reflect.*;
+import java.util.Calendar;
 public class ApuestaSOA {
 	
 	
@@ -16,10 +17,12 @@ public class ApuestaSOA {
 	 */
 	public String add( int ap_monto, String  ap_tipo,String ca_id_caballo, String co_id_carrera) throws PersistentException{
 		
+		
 		String mensaje="";
 		int resultado=1;
 		int ganancia=0;
-		
+		double t1,t2;
+		t1=System.currentTimeMillis();
 		if(ap_monto==0 || ap_tipo==null || ap_tipo.equals("") ||
 				ca_id_caballo.equals("") || ca_id_caballo==null || co_id_carrera.equals("") || co_id_carrera==null){
 			
@@ -89,7 +92,23 @@ public class ApuestaSOA {
 		
 		
 		
+		t2=System.currentTimeMillis();
+		//instanciando log
 		
+		Calendar calendario = Calendar.getInstance();
+		String lo_hora;
+		String lo_tiempo;
+		String lo_parametros;
+		Double cal;
+		cal=t1/t2;
+		
+		
+		lo_tiempo="tiempo:"+cal+" milisegundos";
+		lo_hora =calendario.get(Calendar.HOUR_OF_DAY)+":"+calendario.get(Calendar.MINUTE);
+		lo_parametros="("+ap_monto+")("+ap_tipo+")("+ca_id_caballo+")("+co_id_carrera+")";
+		
+		ws.LogsSOA obj = new LogsSOA();
+		obj.add(lo_hora,lo_parametros,mensaje, lo_tiempo);
 		
 		return mensaje;		
 	}
