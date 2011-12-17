@@ -172,4 +172,52 @@
       <parameter name="co_id_carrera" type="string"/>
     </function>
   </service>
+  <service name="LogsSOA">
+    <annotation name="ActionScriptGeneration">
+      <item name="WSDL-service">LogsSOAService</item>
+      <item name="ServiceType">WebService</item>
+      <item name="WSDL">http://localhost:8080/ClubHipico/services/LogsSOA?wsdl</item>
+      <item name="Package">services.logssoa</item>
+      <item name="WSDL-port">LogsSOA</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">WebService</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="WSDL-endpoint">http://localhost:8080/ClubHipico/services/LogsSOA</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="get_method" return-type="string">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="remoteFunction">get</item>
+      </annotation>
+      <annotation name="WSDLName">
+        <item name="get">http://ws,get</item>
+        <item name="SOAPAction"></item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">string</item>
+      </annotation>
+    </function>
+    <function name="add" return-type="void">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="WSDLName">
+        <item name="SOAPAction"></item>
+        <item name="add">http://ws,add</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string,string,string,string</item>
+      </annotation>
+      <parameter name="lo_hora" type="string"/>
+      <parameter name="lo_parametros" type="string"/>
+      <parameter name="lo_resultado" type="string"/>
+      <parameter name="lo_tiempo" type="string"/>
+    </function>
+  </service>
 </model>
