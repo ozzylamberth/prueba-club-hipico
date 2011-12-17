@@ -1,0 +1,40 @@
+
+<model xmlns="http://ns.adobe.com/Fiber/1.0">
+  <annotation name="ActionScriptGeneration">
+    <item name="FullyQualifyReferences">true</item>
+  </annotation>
+  <service name="ApuestaSOA">
+    <annotation name="ActionScriptGeneration">
+      <item name="WSDL-service">ApuestaSOAService</item>
+      <item name="ServiceType">WebService</item>
+      <item name="WSDL">http://localhost:8080/ClubHipico/services/ApuestaSOA?wsdl</item>
+      <item name="Package">services.apuestasoa</item>
+      <item name="WSDL-port">ApuestaSOA</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">WebService</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="WSDL-endpoint">http://localhost:8080/ClubHipico/services/ApuestaSOA</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="add" return-type="string">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="WSDLName">
+        <item name="SOAPAction"></item>
+        <item name="add">http://ws,add</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,string,string,string</item>
+        <item name="returnType">string</item>
+      </annotation>
+      <parameter name="ap_monto" type="integer"/>
+      <parameter name="ap_tipo" type="string"/>
+      <parameter name="ca_id_caballo" type="string"/>
+      <parameter name="co_id_carrera" type="string"/>
+    </function>
+  </service>
+</model>
