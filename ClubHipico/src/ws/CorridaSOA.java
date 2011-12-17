@@ -6,7 +6,8 @@ import org.orm.PersistentException;
 import com.google.gson.Gson;
 
 import SOAPVO.CorridaSOAPVO;
-
+import java.lang.reflect.*;
+import java.util.Calendar;
 public class CorridaSOA {
 
 	
@@ -22,6 +23,8 @@ public class CorridaSOA {
 	public String add(String co_id_carrera, String co_fecha,String co_hora,int co_ganancia,int co_finalizado){
 		String mensaje="";
 		int resultado=1;
+		double t1,t2;
+		t1=System.currentTimeMillis();
 		
 		if(co_id_carrera.equals("") || co_id_carrera==null || co_fecha.equals("") || co_fecha==null
 				|| co_hora.equals("") || co_hora==null || co_finalizado!=0 || co_ganancia!=0){
@@ -66,7 +69,23 @@ public class CorridaSOA {
 			
 		}
 		
+		t2=System.currentTimeMillis();
+		//instanciando log
 		
+		Calendar calendario = Calendar.getInstance();
+		String lo_hora;
+		String lo_tiempo;
+		String lo_parametros;
+		Double cal;
+		cal=t1/t2;
+		
+		
+		lo_tiempo="tiempo:"+cal+" milisegundos";
+		lo_hora =calendario.get(Calendar.HOUR_OF_DAY)+":"+calendario.get(Calendar.MINUTE);
+		lo_parametros="("+co_id_carrera+")("+co_fecha+")("+co_hora+")("+co_ganancia+")("+co_finalizado+")";
+		
+		ws.LogsSOA obj = new LogsSOA();
+		obj.add(lo_hora,lo_parametros,mensaje, lo_tiempo);
 		
 		return mensaje;
 	}// fin metodo add
@@ -78,6 +97,8 @@ public class CorridaSOA {
 	 */
 	public String get(String co_id_carrera){
 		String json=null;
+		double t1,t2;
+		t1=System.currentTimeMillis();
 		
 		orm.DAOFactory lDAOFactory = orm.DAOFactory.getDAOFactory();
 		
@@ -110,7 +131,23 @@ public class CorridaSOA {
 			}
 
         }
-
+		t2=System.currentTimeMillis();
+		//instanciando log
+		
+		Calendar calendario = Calendar.getInstance();
+		String lo_hora;
+		String lo_tiempo;
+		String lo_parametros;
+		Double cal;
+		cal=t1/t2;
+		
+		
+		lo_tiempo="tiempo:"+cal+" milisegundos";
+		lo_hora =calendario.get(Calendar.HOUR_OF_DAY)+":"+calendario.get(Calendar.MINUTE);
+		lo_parametros="("+co_id_carrera+")";
+		
+		ws.LogsSOA obj = new LogsSOA();
+		obj.add(lo_hora,lo_parametros,json, lo_tiempo);
 		return json;
 	} 
 	

@@ -11,7 +11,8 @@ import orm.dao.Hip_corridaDAO;
 import com.google.gson.Gson;
 
 import SOAPVO.ApuestaSOAPVO;
-
+import java.lang.reflect.*;
+import java.util.Calendar;
 
 public class CierreCarreraSOA {
 
@@ -28,7 +29,8 @@ public class CierreCarreraSOA {
 		int resultado=1;
 		String json=null;
 		int cantidadGanadores=0;
-
+		double t1,t2;
+		t1=System.currentTimeMillis();
 		
 		if (co_id_carrera.equals("") || co_id_carrera==null || ca_id_caballo.equals("") || ca_id_caballo==null){
 			
@@ -117,7 +119,23 @@ public class CierreCarreraSOA {
 			
 			
 		}
+		t2=System.currentTimeMillis();
+		//instanciando log
 		
+		Calendar calendario = Calendar.getInstance();
+		String lo_hora;
+		String lo_tiempo;
+		String lo_parametros;
+		Double cal;
+		cal=t1/t2;
+		
+		
+		lo_tiempo="tiempo:"+cal+" milisegundos";
+		lo_hora =calendario.get(Calendar.HOUR_OF_DAY)+":"+calendario.get(Calendar.MINUTE);
+		lo_parametros="("+ca_id_caballo+")("+co_id_carrera+")";
+		
+		ws.LogsSOA obj = new LogsSOA();
+		obj.add(lo_hora,lo_parametros,json, lo_tiempo);
 		
 		
 		

@@ -5,7 +5,8 @@ import java.util.Collection;
 import org.orm.PersistentException;
 import com.google.gson.Gson;
 import SOAPVO.CaballosSOAPVO;
-
+import java.lang.reflect.*;
+import java.util.Calendar;
 public class CaballosSOA {
 	
 	
@@ -20,7 +21,8 @@ public class CaballosSOA {
 	public String add(String ca_id_caballo, String ca_nombre, String ca_sexo,int ca_edad){
 		String mensaje="";
 		int resultado=1;
-
+		double t1,t2;
+		t1=System.currentTimeMillis();
 		
 		// verficando si las variables vienen vacias		
 		if(ca_id_caballo.equals("") || ca_id_caballo==null || ca_nombre.equals("") || ca_nombre==null 
@@ -64,7 +66,23 @@ public class CaballosSOA {
 		
 		}//fin else
 		
+		t2=System.currentTimeMillis();
+		//instanciando log
 		
+		Calendar calendario = Calendar.getInstance();
+		String lo_hora;
+		String lo_tiempo;
+		String lo_parametros;
+		Double cal;
+		cal=t1/t2;
+		
+		
+		lo_tiempo="tiempo:"+cal+" milisegundos";
+		lo_hora =calendario.get(Calendar.HOUR_OF_DAY)+":"+calendario.get(Calendar.MINUTE);
+		lo_parametros="("+ca_id_caballo+")("+ca_nombre+")("+ca_sexo+")("+ca_edad+")";
+		
+		ws.LogsSOA obj = new LogsSOA();
+		obj.add(lo_hora,lo_parametros,mensaje, lo_tiempo);
 		
 		
 		
@@ -79,7 +97,8 @@ public class CaballosSOA {
 	 */
 	public String get(String ca_id_caballo){
 		String json="";
-		
+		double t1,t2;
+		t1=System.currentTimeMillis();
 		
 		
 		orm.DAOFactory lDAOFactory = orm.DAOFactory.getDAOFactory();
@@ -115,7 +134,23 @@ public class CaballosSOA {
         	
         	
         }
-        
+		t2=System.currentTimeMillis();
+		//instanciando log
+		
+		Calendar calendario = Calendar.getInstance();
+		String lo_hora;
+		String lo_tiempo;
+		String lo_parametros;
+		Double cal;
+		cal=t1/t2;
+		
+		
+		lo_tiempo="tiempo:"+cal+" milisegundos";
+		lo_hora =calendario.get(Calendar.HOUR_OF_DAY)+":"+calendario.get(Calendar.MINUTE);
+		lo_parametros="("+ca_id_caballo+")";
+		
+		ws.LogsSOA obj = new LogsSOA();
+		obj.add(lo_hora,lo_parametros,json, lo_tiempo);
         
         
 		
