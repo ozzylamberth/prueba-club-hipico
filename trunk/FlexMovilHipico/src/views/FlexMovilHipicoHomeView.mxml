@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:apuestasoa="services.apuestasoa.*"
+		title="HomeView">
+	
+	<fx:Script>
+		<![CDATA[
+			protected function button_clickHandler(event:MouseEvent):void
+			{
+				
+				var monto:Number=0;
+				monto=parseInt(ap_monto.text);
+				addResult.token = apuestaSOA.add( monto, ap_tipo.text, ca_id_caballo.text, co_id_carrera.text);
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<s:CallResponder id="addResult"/>
+		<apuestasoa:ApuestaSOA id="apuestaSOA"/>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Button id="button" x="85" y="332" label="Ingresar Apuesta" click="button_clickHandler(event)"/>
+	<s:Label x="43" y="45" text="Monto:"/>
+	<s:Label x="55" y="86" text="Tipo:"/>
+	<s:Label x="17" y="141" text="ID caballo:"/>
+	<s:Label x="17" y="184" text="ID carrera:"/>
+	<s:TextInput id="ap_monto" x="98" y="24" width="212"/>
+	<s:TextInput id="ap_tipo" x="98" y="68" width="212"/>
+	<s:TextInput id="ca_id_caballo" x="98" y="120" width="212"/>
+	<s:TextInput id="co_id_carrera" x="98" y="164" width="212"/>
+	<s:Label id="label2" x="51" y="246" width="185" height="26" text="{addResult.lastResult}"/>
+</s:View>
