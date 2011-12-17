@@ -20,13 +20,13 @@ public class CierreCarreraSOA {
 		double montoGanador=0;
 		double pozo=0;
 		int resultado=1;
-		String mensaje="";
 		String json=null;
 		int cantidadGanadores=0;
+
 		
 		if (co_id_carrera.equals("") || co_id_carrera==null || ca_id_caballo.equals("") || ca_id_caballo==null){
 			
-			mensaje="ingrese carrera y caballo";
+			
 			resultado=0;
 			
 		}
@@ -42,19 +42,18 @@ public class CierreCarreraSOA {
 				Collection<ApuestaSOAPVO> coleccionApuesta = new ArrayList<ApuestaSOAPVO>();
 				orm.Hip_apuesta[] ormApuesta;
 				//
-				ormApuesta =lDAOFactory.getHip_apuestaDAO().listHip_apuestaByQuery("ca_id_caballo='"+ca_id_caballo+"'", null);
+				ormApuesta =lDAOFactory.getHip_apuestaDAO().listHip_apuestaByQuery("ca_id_caballo='"+ca_id_caballo+"' AND co_id_carrera='"+co_id_carrera+"'", null);
 
 				
 	        	for (int i = 0; i < ormApuesta.length; i++ ){
 	        		
 	        		//guardando coleccion de apuestas encontradas
 	                ApuestaSOAPVO apuestaEncontrada  = ApuestaSOAPVO.crearApuestaSOAPVO(ormApuesta[i]);
-	                
-	                
-	                	coleccionApuesta.add(apuestaEncontrada );
-	                	System.out.println("apuesta :"+ormApuesta[i]);
-	                	cantidadGanadores=cantidadGanadores+1;
-	                
+	                coleccionApuesta.add(apuestaEncontrada );
+	                System.out.println("apuesta :"+ormApuesta[i]);
+	                cantidadGanadores=cantidadGanadores+1;
+	                	
+
 	        		}
 	        	System.out.println("cantidad ganadores:"+cantidadGanadores);
 	        	
@@ -74,12 +73,12 @@ public class CierreCarreraSOA {
 	        	lormCorridaDAO.save(lormCorrida);
 	        	
 	        	//calculando monto ganador
-	        	montoGanador=pozo/cantidadGanadores;
+	        		montoGanador=pozo/cantidadGanadores;	        	
+	        		System.out.println("monto ganador: "+montoGanador);
+	        		Gson gson = new Gson();
+               
+                json = gson.toJson(coleccionApuesta);
 	        	
-	        	System.out.println("monto ganador: "+montoGanador);
-                Gson gson = new Gson();
-                json = gson.toJson( coleccionApuesta);
-                
 				
 				} catch (PersistentException e) {
 					// TODO Auto-generated catch block

@@ -11,12 +11,12 @@ import SOAPVO.CorridaSOAPVO;
 public class CorridaSOA {
 
 	
-	public String add(String co_id_carrera, String co_fecha,String co_hora,int co_ganancia){
+	public String add(String co_id_carrera, String co_fecha,String co_hora,int co_ganancia,int co_finalizado){
 		String mensaje="";
 		int resultado=1;
 		
 		if(co_id_carrera.equals("") || co_id_carrera==null || co_fecha.equals("") || co_fecha==null
-				|| co_hora.equals("") || co_hora==null){
+				|| co_hora.equals("") || co_hora==null || co_finalizado==0){
 			
 			mensaje="ingrese todos los datos";
 			resultado=0;
@@ -39,6 +39,7 @@ public class CorridaSOA {
 				lormHip_corrida.setCo_fecha(co_fecha);
 				lormHip_corrida.setCo_hora(co_hora);
 				lormHip_corrida.setCo_ganancia(co_ganancia);
+				lormHip_corrida.setCo_finalizado(co_finalizado);
 				
 				//guardando cambios
 				

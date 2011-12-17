@@ -23,6 +23,7 @@ public class Hip_corridaCriteria extends AbstractORMCriteria {
 	public final StringExpression co_fecha;
 	public final StringExpression co_hora;
 	public final IntegerExpression co_ganancia;
+	public final IntegerExpression co_finalizado;
 	
 	public Hip_corridaCriteria(Criteria criteria) {
 		super(criteria);
@@ -30,6 +31,7 @@ public class Hip_corridaCriteria extends AbstractORMCriteria {
 		co_fecha = new StringExpression("co_fecha", this);
 		co_hora = new StringExpression("co_hora", this);
 		co_ganancia = new IntegerExpression("co_ganancia", this);
+		co_finalizado = new IntegerExpression("co_finalizado", this);
 	}
 	
 	public Hip_corridaCriteria(PersistentSession session) {
