@@ -3,10 +3,22 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:apuestasoa="services.apuestasoa.*"
+			   xmlns:cierrecarrerasoa="services.cierrecarrerasoa.*"
+			   xmlns:caballossoa="services.caballossoa.*"
+			   xmlns:corridasoa="services.corridasoa.*"
 			   minWidth="955" minHeight="600">
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.serialization.json.JSON;
+			
+			import mx.collections.ArrayCollection;
 			import mx.controls.Alert;
+			import mx.controls.Text;
+			import mx.rpc.events.ResultEvent;
+			
+			public var result:String;
+			public var arr:Array = new Array();
+			public var dp:ArrayCollection = new ArrayCollection();
 			
 			protected function button_clickHandler(event:MouseEvent):void
 			{
@@ -17,6 +29,74 @@
 				addResult.token = apuestaSOA.add(/*Enter value(s) for */ monto, ap_tipo.text, ca_id_caballo.text, co_id_carrera.text);
 			}
 			
+			
+			protected function button2_clickHandler(event:MouseEvent):void
+			{
+				cierreCarreraSOA.cerrarCaja(/*Enter value(s) for */ co_id_carrera2.text, ca_id_caballo2.text);
+			}
+			
+			protected function tomaResultado(e:ResultEvent):void
+			{
+				
+				
+				//se extrae el string json que trae el resultado
+				result = e.result.toString();
+				
+				//deserializacion 
+				arr = (JSON.decode(result) as Array);
+				
+				//creando arraycollection
+				dp = new ArrayCollection(arr);
+				
+				//enviando datos a la grilla
+				grid.dataProvider = dp;
+			}
+
+			protected function button3_clickHandler(event:MouseEvent):void
+			{
+				
+				var caballos:String="cab";
+				get_methodResult.token = caballosSOA.get_method(caballos);
+			}
+			
+			protected function mostrarCaballos(e:ResultEvent):void{
+				
+				
+				//se extrae el string json que trae el resultado
+				result = e.result.toString();
+				
+				//deserializacion 
+				arr = (JSON.decode(result) as Array);
+				
+				//creando arraycollection
+				dp = new ArrayCollection(arr);
+				
+				//enviando datos a la grilla
+				gridCaballos.dataProvider = dp;
+			}
+			
+			protected function button4_clickHandler(event:MouseEvent):void
+			{
+				var carreras:String="carr";
+				get_methodResult2.token = corridaSOA.get_method(carreras);
+			}
+			
+			protected function mostrarCarreras(e:ResultEvent):void{
+				
+				
+				//se extrae el string json que trae el resultado
+				result = e.result.toString();
+				
+				//deserializacion 
+				arr = (JSON.decode(result) as Array);
+				
+				//creando arraycollection
+				dp = new ArrayCollection(arr);
+				
+				//enviando datos a la grilla
+				gridCarreras.dataProvider = dp;
+			}
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -24,6 +104,18 @@
 		<apuestasoa:ApuestaSOA id="apuestaSOA"
 							   fault="Alert.show(event.fault.faultString + '\n' + event.fault.faultDetail)"
 							   showBusyCursor="true"/>
+		<s:CallResponder id="cerrarCajaResult"/>
+		<cierrecarrerasoa:CierreCarreraSOA id="cierreCarreraSOA"
+										   fault="Alert.show(event.fault.faultString + '\n' + event.fault.faultDetail)"
+										   showBusyCursor="true"  result="tomaResultado(event)" />
+		<s:CallResponder id="get_methodResult"/>
+		<caballossoa:CaballosSOA id="caballosSOA"
+								 fault="Alert.show(event.fault.faultString + '\n' + event.fault.faultDetail)"
+								 showBusyCursor="true" result="mostrarCaballos(event)" />
+		<s:CallResponder id="get_methodResult2"/>
+		<corridasoa:CorridaSOA id="corridaSOA"
+							   fault="Alert.show(event.fault.faultString + '\n' + event.fault.faultDetail)"
+							   showBusyCursor="true" result="mostrarCarreras(event)"/>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<mx:TabNavigator x="186" y="63" width="572" height="388">
@@ -38,8 +130,93 @@
 			<s:TextInput id="co_id_carrera" x="217" y="159"/>
 			<s:Label id="label2" x="79" y="232" text="{addResult.lastResult}"/>
 			<s:Button id="button" x="251" y="256" label="Ingresar" click="button_clickHandler(event)"/>
+			<s:DropDownList x="390" y="95"  id="dropDownLst"
+							requireSelection="true">
+				<s:dataProvider>
+					<s:ArrayList source="[The,quick,brown,fox,jumps,over,the,lazy,dog]" />
+				</s:dataProvider>
+				
+			</s:DropDownList>
 		</s:NavigatorContent>
 		<s:NavigatorContent width="100%" height="100%" label="Terminar Carrera">
+			<s:DataGrid id="grid" x="85" y="89" width="392" requestedRowCount="4">
+				<s:columns>
+					<s:ArrayList>
+						<s:GridColumn dataField="ap_monto" headerText="Monto"></s:GridColumn>
+						<s:GridColumn dataField="ap_tipo" headerText="Tipo"></s:GridColumn>
+						<s:GridColumn dataField="co_id_carrera" headerText="Carrera"></s:GridColumn>
+						<s:GridColumn dataField="ca_id_caballo" headerText="Caballo"></s:GridColumn>
+					</s:ArrayList>
+				</s:columns>
+				<s:typicalItem>
+					<fx:Object dataField1="Sample Data" dataField2="Sample Data"
+							   dataField3="Sample Data"></fx:Object>
+				</s:typicalItem>
+				<s:ArrayList>
+					<fx:Object dataField1="data1" dataField2="data1" dataField3="data1"></fx:Object>
+					<fx:Object dataField1="data2" dataField2="data2" dataField3="data2"></fx:Object>
+					<fx:Object dataField1="data3" dataField2="data3" dataField3="data3"></fx:Object>
+					<fx:Object dataField1="data4" dataField2="data4" dataField3="data4"></fx:Object>
+				</s:ArrayList>
+			</s:DataGrid>
+			<s:Label x="33" y="24" text="ID Carrera:"/>
+			<s:Label x="248" y="26" text="ID Caballo Ganador:"/>
+			<s:TextInput id="co_id_carrera2" x="102" y="14"/>
+			<s:TextInput id="ca_id_caballo2" x="369" y="16"/>
+			<s:Button id="button2" x="366" y="287" label="Mostrar Ganadores"
+					  click="button2_clickHandler(event)"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Mostrar Caballos">
+			<s:DataGrid id="gridCaballos" x="60" y="24" width="441" height="235" requestedRowCount="4">
+				<s:columns>
+					<s:ArrayList>
+						<s:GridColumn dataField="ca_id_caballo" headerText="ID"></s:GridColumn>
+						<s:GridColumn dataField="ca_nombre" headerText="Nombre"></s:GridColumn>
+						<s:GridColumn dataField="ca_sexo" headerText="Sexo"></s:GridColumn>
+						<s:GridColumn dataField="ca_edad" headerText="Edad"></s:GridColumn>
+						
+					</s:ArrayList>
+				</s:columns>
+				<s:typicalItem>
+					<fx:Object dataField1="Sample Data" dataField2="Sample Data"
+							   dataField3="Sample Data"></fx:Object>
+				</s:typicalItem>
+				<s:ArrayList>
+					<fx:Object dataField1="data1" dataField2="data1" dataField3="data1"></fx:Object>
+					<fx:Object dataField1="data2" dataField2="data2" dataField3="data2"></fx:Object>
+					<fx:Object dataField1="data3" dataField2="data3" dataField3="data3"></fx:Object>
+					<fx:Object dataField1="data4" dataField2="data4" dataField3="data4"></fx:Object>
+				</s:ArrayList>
+			</s:DataGrid>
+			<s:Button id="button3" x="431" y="285" label="Mostrar"
+					  click="button3_clickHandler(event)"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Mostrar Carreras">
+			<s:DataGrid id="gridCarreras" x="60" y="39" width="397" height="203" requestedRowCount="4">
+				<s:columns>
+					<s:ArrayList>
+						<s:GridColumn dataField="co_id_carrera" headerText="ID"></s:GridColumn>
+						<s:GridColumn dataField="co_fecha" headerText="Fecha"></s:GridColumn>
+						<s:GridColumn dataField="co_hora" headerText="Hora"></s:GridColumn>
+						<s:GridColumn dataField="co_ganancia" headerText="Ganancia"></s:GridColumn>
+						<s:GridColumn dataField="co_finalizado" headerText="Finalizado"></s:GridColumn>
+						
+						
+					</s:ArrayList>
+				</s:columns>
+				<s:typicalItem>
+					<fx:Object dataField1="Sample Data" dataField2="Sample Data"
+							   dataField3="Sample Data"></fx:Object>
+				</s:typicalItem>
+				<s:ArrayList>
+					<fx:Object dataField1="data1" dataField2="data1" dataField3="data1"></fx:Object>
+					<fx:Object dataField1="data2" dataField2="data2" dataField3="data2"></fx:Object>
+					<fx:Object dataField1="data3" dataField2="data3" dataField3="data3"></fx:Object>
+					<fx:Object dataField1="data4" dataField2="data4" dataField3="data4"></fx:Object>
+				</s:ArrayList>
+			</s:DataGrid>
+			<s:Button id="button4" x="429" y="286" label="Mostrar"
+					  click="button4_clickHandler(event)"/>
 		</s:NavigatorContent>
 	</mx:TabNavigator>
 </s:Application>

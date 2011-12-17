@@ -37,4 +37,139 @@
       <parameter name="co_id_carrera" type="string"/>
     </function>
   </service>
+  <service name="CierreCarreraSOA">
+    <annotation name="ActionScriptGeneration">
+      <item name="WSDL-service">CierreCarreraSOAService</item>
+      <item name="ServiceType">WebService</item>
+      <item name="WSDL">http://localhost:8080/ClubHipico/services/CierreCarreraSOA?wsdl</item>
+      <item name="Package">services.cierrecarrerasoa</item>
+      <item name="WSDL-port">CierreCarreraSOA</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">WebService</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="WSDL-endpoint">http://localhost:8080/ClubHipico/services/CierreCarreraSOA</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="cerrarCaja" return-type="string">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="WSDLName">
+        <item name="cerrarCaja">http://ws,cerrarCaja</item>
+        <item name="SOAPAction"></item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string,string</item>
+        <item name="returnType">string</item>
+      </annotation>
+      <parameter name="co_id_carrera" type="string"/>
+      <parameter name="ca_id_caballo" type="string"/>
+    </function>
+  </service>
+  <service name="CaballosSOA">
+    <annotation name="ActionScriptGeneration">
+      <item name="WSDL-service">CaballosSOAService</item>
+      <item name="ServiceType">WebService</item>
+      <item name="WSDL">http://localhost:8080/ClubHipico/services/CaballosSOA?wsdl</item>
+      <item name="Package">services.caballossoa</item>
+      <item name="WSDL-port">CaballosSOA</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">WebService</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="WSDL-endpoint">http://localhost:8080/ClubHipico/services/CaballosSOA</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="get_method" return-type="string">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="remoteFunction">get</item>
+      </annotation>
+      <annotation name="WSDLName">
+        <item name="get">http://ws,get</item>
+        <item name="SOAPAction"></item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string</item>
+        <item name="returnType">string</item>
+      </annotation>
+      <parameter name="ca_id_caballo" type="string"/>
+    </function>
+    <function name="add" return-type="string">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="WSDLName">
+        <item name="SOAPAction"></item>
+        <item name="add">http://ws,add</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string,string,string,integer</item>
+        <item name="returnType">string</item>
+      </annotation>
+      <parameter name="ca_id_caballo" type="string"/>
+      <parameter name="ca_nombre" type="string"/>
+      <parameter name="ca_sexo" type="string"/>
+      <parameter name="ca_edad" type="integer"/>
+    </function>
+  </service>
+  <service name="CorridaSOA">
+    <annotation name="ActionScriptGeneration">
+      <item name="WSDL-service">CorridaSOAService</item>
+      <item name="ServiceType">WebService</item>
+      <item name="WSDL">http://localhost:8080/ClubHipico/services/CorridaSOA?wsdl</item>
+      <item name="Package">services.corridasoa</item>
+      <item name="WSDL-port">CorridaSOA</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">WebService</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="WSDL-endpoint">http://localhost:8080/ClubHipico/services/CorridaSOA</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="add" return-type="string">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="WSDLName">
+        <item name="SOAPAction"></item>
+        <item name="add">http://ws,add</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string,string,string,integer,integer</item>
+        <item name="returnType">string</item>
+      </annotation>
+      <parameter name="co_id_carrera" type="string"/>
+      <parameter name="co_fecha" type="string"/>
+      <parameter name="co_hora" type="string"/>
+      <parameter name="co_ganancia" type="integer"/>
+      <parameter name="co_finalizado" type="integer"/>
+    </function>
+    <function name="get_method" return-type="string">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="remoteFunction">get</item>
+      </annotation>
+      <annotation name="WSDLName">
+        <item name="get">http://ws,get</item>
+        <item name="SOAPAction"></item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string</item>
+        <item name="returnType">string</item>
+      </annotation>
+      <parameter name="co_id_carrera" type="string"/>
+    </function>
+  </service>
 </model>
