@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -33,19 +33,13 @@
    <ns1:parameter qname="ns2:ca_id_caballo" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="get add"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="CaballosSOA"/>
-  <ns1:parameter name="className" value="ws.CaballosSOA"/>
-  <ns1:parameter name="wsdlServicePort" value="CaballosSOA"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://ws"/>
+  <ns1:parameter name="wsdlServicePort" value="CaballosSOA"/>
+  <ns1:parameter name="className" value="ws.CaballosSOA"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ws"/>
   <ns1:parameter name="wsdlServiceElement" value="CaballosSOAService"/>
- </ns1:service>
- <ns1:service name="AdminService" provider="java:MSG">
-  <ns1:parameter name="allowedMethods" value="AdminService"/>
-  <ns1:parameter name="enableRemoteAdmin" value="false"/>
-  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
-  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
  <ns1:service name="CorridaSOA" provider="java:RPC" style="wrapped" use="literal">
   <ns1:operation name="add" qname="ns3:add" returnQName="ns3:addReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://ws" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -59,45 +53,68 @@
    <ns1:parameter qname="ns4:co_id_carrera" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="get add"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="CorridaSOA"/>
-  <ns1:parameter name="className" value="ws.CorridaSOA"/>
-  <ns1:parameter name="wsdlServicePort" value="CorridaSOA"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://ws"/>
+  <ns1:parameter name="wsdlServicePort" value="CorridaSOA"/>
+  <ns1:parameter name="className" value="ws.CorridaSOA"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ws"/>
   <ns1:parameter name="wsdlServiceElement" value="CorridaSOAService"/>
  </ns1:service>
- <ns1:service name="ApuestaSOA" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="add" qname="ns5:add" returnQName="ns5:addReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://ws" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns5:ap_monto" type="xsd:int"/>
-   <ns1:parameter qname="ns5:ap_tipo" type="xsd:string"/>
-   <ns1:parameter qname="ns5:ca_id_caballo" type="xsd:string"/>
-   <ns1:parameter qname="ns5:co_id_carrera" type="xsd:string"/>
-   <ns1:fault class="org.orm.PersistentException" qname="ns5:fault" type="ns6:PersistentException" xmlns:ns6="http://orm.org"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="add"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="ApuestaSOA"/>
-  <ns1:parameter name="className" value="ws.ApuestaSOA"/>
-  <ns1:parameter name="wsdlServicePort" value="ApuestaSOA"/>
-  <ns1:parameter name="schemaQualified" value="http://ws,http://orm.org"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://ws"/>
-  <ns1:parameter name="wsdlServiceElement" value="ApuestaSOAService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:PersistentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.orm.PersistentException" xmlns:ns7="http://orm.org"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
  <ns1:service name="CierreCarreraSOA" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="cerrarCaja" qname="ns8:cerrarCaja" returnQName="ns8:cerrarCajaReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://ws" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns8:co_id_carrera" type="xsd:string"/>
-   <ns1:parameter qname="ns8:ca_id_caballo" type="xsd:string"/>
+  <ns1:operation name="cerrarCaja" qname="ns5:cerrarCaja" returnQName="ns5:cerrarCajaReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://ws" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:co_id_carrera" type="xsd:string"/>
+   <ns1:parameter qname="ns5:ca_id_caballo" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="cerrarCaja"/>
-  <ns1:parameter name="wsdlPortType" value="CierreCarreraSOA"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://ws"/>
-  <ns1:parameter name="wsdlServicePort" value="CierreCarreraSOA"/>
+  <ns1:parameter name="wsdlPortType" value="CierreCarreraSOA"/>
   <ns1:parameter name="className" value="ws.CierreCarreraSOA"/>
+  <ns1:parameter name="wsdlServicePort" value="CierreCarreraSOA"/>
+  <ns1:parameter name="schemaQualified" value="http://ws"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ws"/>
   <ns1:parameter name="wsdlServiceElement" value="CierreCarreraSOAService"/>
+ </ns1:service>
+ <ns1:service name="ApuestaSOA" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="add" qname="ns6:add" returnQName="ns6:addReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://ws" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:ap_monto" type="xsd:int"/>
+   <ns1:parameter qname="ns6:ap_tipo" type="xsd:string"/>
+   <ns1:parameter qname="ns6:ca_id_caballo" type="xsd:string"/>
+   <ns1:parameter qname="ns6:co_id_carrera" type="xsd:string"/>
+   <ns1:fault class="org.orm.PersistentException" qname="ns6:fault" type="ns7:PersistentException" xmlns:ns7="http://orm.org"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="add"/>
+  <ns1:parameter name="wsdlPortType" value="ApuestaSOA"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://ws,http://orm.org"/>
+  <ns1:parameter name="wsdlServicePort" value="ApuestaSOA"/>
+  <ns1:parameter name="className" value="ws.ApuestaSOA"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ws"/>
+  <ns1:parameter name="wsdlServiceElement" value="ApuestaSOAService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:PersistentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.orm.PersistentException" xmlns:ns8="http://orm.org"/>
+ </ns1:service>
+ <ns1:service name="LogsSOA" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="add" qname="ns9:add" soapAction="" xmlns:ns9="http://ws">
+   <ns1:parameter qname="ns9:lo_hora" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns9:lo_parametros" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns9:lo_resultado" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns9:lo_tiempo" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="get" qname="ns10:get" returnQName="ns10:getReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://ws" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="get add"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="LogsSOA"/>
+  <ns1:parameter name="className" value="ws.LogsSOA"/>
+  <ns1:parameter name="wsdlServicePort" value="LogsSOA"/>
+  <ns1:parameter name="schemaQualified" value="http://ws"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ws"/>
+  <ns1:parameter name="wsdlServiceElement" value="LogsSOAService"/>
  </ns1:service>
  <ns1:service name="Version" provider="java:RPC">
   <ns1:parameter name="allowedMethods" value="getVersion"/>
