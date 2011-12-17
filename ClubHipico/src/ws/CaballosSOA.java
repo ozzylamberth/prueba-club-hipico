@@ -150,7 +150,7 @@ public class CaballosSOA {
 		lo_parametros="("+ca_id_caballo+")";
 		
 		ws.LogsSOA obj = new LogsSOA();
-		obj.add(lo_hora,lo_parametros,json, lo_tiempo);
+		obj.add(lo_hora,lo_parametros,"envio de caballos", lo_tiempo);
         
         
 		

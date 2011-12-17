@@ -147,7 +147,7 @@ public class CorridaSOA {
 		lo_parametros="("+co_id_carrera+")";
 		
 		ws.LogsSOA obj = new LogsSOA();
-		obj.add(lo_hora,lo_parametros,json, lo_tiempo);
+		obj.add(lo_hora,lo_parametros,"envio de carreras", lo_tiempo);
 		return json;
 	} 
 	
