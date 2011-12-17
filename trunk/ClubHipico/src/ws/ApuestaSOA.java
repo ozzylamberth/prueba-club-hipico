@@ -5,6 +5,15 @@ import org.orm.PersistentException;
 public class ApuestaSOA {
 	
 	
+	/**
+	 * metodo para agregar una apuesta 
+	 * @param ap_monto monto a apostar
+	 * @param ap_tipo tipo de apuesta se refiere a que lugar apuesta
+	 * @param ca_id_caballo codigo del caballo
+	 * @param co_id_carrera codigo de la carrera
+	 * @return
+	 * @throws PersistentException
+	 */
 	public String add( int ap_monto, String  ap_tipo,String ca_id_caballo, String co_id_carrera) throws PersistentException{
 		
 		String mensaje="";

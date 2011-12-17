@@ -45,6 +45,10 @@ public class CaballosSOAPVO {
 	}
 	
 	
+	/**Para setear objeto apuesta y poder pasarlo al ws
+	 * @param hip_caballosOrm
+	 * @return
+	 */
 	public static CaballosSOAPVO crearCaballosSOAPVO(orm.Hip_caballos hip_caballosOrm){
 		
 		

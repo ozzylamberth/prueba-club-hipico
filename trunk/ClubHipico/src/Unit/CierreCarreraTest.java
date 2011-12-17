@@ -2,7 +2,7 @@ package Unit;
 
 public class CierreCarreraTest {
 
-	/**
+	/**prueba unitaria para cerrar caja
 	 * @param args
 	 */
 	public static void main(String[] args) {

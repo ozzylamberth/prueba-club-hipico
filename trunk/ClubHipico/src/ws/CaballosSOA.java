@@ -10,6 +10,13 @@ public class CaballosSOA {
 	
 	
 	
+	/** metodo que permite agregar un caballo
+	 * @param ca_id_caballo codigo del caballo 
+	 * @param ca_nombre nombre del caballo
+	 * @param ca_sexo sexo del caballo
+	 * @param ca_edad  edad del caballo
+	 * @return
+	 */
 	public String add(String ca_id_caballo, String ca_nombre, String ca_sexo,int ca_edad){
 		String mensaje="";
 		int resultado=1;
@@ -38,7 +45,7 @@ public class CaballosSOA {
 				lormHip_caballos.setCa_id_caballo(ca_id_caballo);
 				lormHip_caballos.setCa_nombre(ca_nombre);
 				lormHip_caballos.setCa_sexo(ca_sexo);
-				lormHip_caballos.setCa_sexo(ca_sexo);
+				lormHip_caballos.setCa_edad(ca_edad);
 				
 				//guardando objeto
 				
@@ -66,6 +73,10 @@ public class CaballosSOA {
 		return mensaje;
 	}//fin metodo add
 	
+	/** metodo para mostra caballos 
+	 * @param ca_id_caballo le paso un parametro caballo que muestra la busqueda del animal
+	 * @return retorna un json con todos los caballos
+	 */
 	public String get(String ca_id_caballo){
 		String json="";
 		

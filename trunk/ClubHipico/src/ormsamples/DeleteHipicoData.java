@@ -22,6 +22,10 @@ public class DeleteHipicoData {
 			orm.Hip_apuesta lormHip_apuesta = lormHip_apuestaDAO.loadHip_apuestaByQuery(null, null);
 			// Delete the persistent object
 			lormHip_apuestaDAO.delete(lormHip_apuesta);
+			orm.dao.Hip_logDAO lormHip_logDAO = lDAOFactory.getHip_logDAO();
+			orm.Hip_log lormHip_log = lormHip_logDAO.loadHip_logByQuery(null, null);
+			// Delete the persistent object
+			lormHip_logDAO.delete(lormHip_log);
 			t.commit();
 		}
 		catch (Exception e) {

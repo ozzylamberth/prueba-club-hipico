@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: DuKe TeAm
+License Type: Purchased
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Hip_log" table="hip_log" lazy="false">
+		<id name="lo_id" column="lo_id" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="lo_hora" column="lo_hora" type="string" length="10" not-null="true" lazy="false"/>
+		<property name="lo_parametros" column="lo_parametros" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="lo_resultado" column="lo_resultado" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="lo_tiempo" column="lo_tiempo" type="string" length="255" not-null="true" lazy="false"/>
+	</class>
+</hibernate-mapping>

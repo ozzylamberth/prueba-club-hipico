@@ -4,7 +4,7 @@ import org.orm.PersistentException;
 
 public class ApuestaTest {
 
-	/**
+	/**pruebas unitarias para agregar apuestas
 	 * @param args
 	 * @throws PersistentException 
 	 */

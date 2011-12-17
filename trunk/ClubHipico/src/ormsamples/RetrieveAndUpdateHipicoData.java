@@ -22,6 +22,10 @@ public class RetrieveAndUpdateHipicoData {
 			orm.Hip_apuesta lormHip_apuesta = lormHip_apuestaDAO.loadHip_apuestaByQuery(null, null);
 			// Update the properties of the persistent object
 			lormHip_apuestaDAO.save(lormHip_apuesta);
+			orm.dao.Hip_logDAO lormHip_logDAO = lDAOFactory.getHip_logDAO();
+			orm.Hip_log lormHip_log = lormHip_logDAO.loadHip_logByQuery(null, null);
+			// Update the properties of the persistent object
+			lormHip_logDAO.save(lormHip_log);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -48,6 +52,12 @@ public class RetrieveAndUpdateHipicoData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//hip_apuestaCriteria.ap_id_apuesta.eq();
 		System.out.println(hip_apuestaCriteria.uniqueHip_apuesta());
+		
+		System.out.println("Retrieving Hip_log by Hip_logCriteria");
+		orm.Hip_logCriteria hip_logCriteria = new orm.Hip_logCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//hip_logCriteria.lo_id.eq();
+		System.out.println(hip_logCriteria.uniqueHip_log());
 		
 	}
 	

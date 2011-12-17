@@ -10,6 +10,8 @@ public class ApuestaSOAPVO {
 	String co_id_carrera;
 	
 	
+	
+	
 	public void setAp_monto(int ap_monto){
 		
 		this.ap_monto = ap_monto;
@@ -50,12 +52,16 @@ public class ApuestaSOAPVO {
 		
 		return co_id_carrera;
 	}
-	
+
+	/** Para setear objeto apuesta y poder pasarlo al ws
+	 * @param hip_apuestaOrm
+	 * @return retorna el objeto seteado
+	 */
 	public static ApuestaSOAPVO crearApuestaSOAPVO(orm.Hip_apuesta hip_apuestaOrm){
 		
 		ApuestaSOAPVO obj= new ApuestaSOAPVO();
 		
-		
+	
 		obj.setAp_monto(hip_apuestaOrm.getAp_id_apuesta());
 		obj.setAp_tipo(hip_apuestaOrm.getAp_tipo());
 		obj.setCa_id_caballo(hip_apuestaOrm.getCa_id_caballo().getCa_id_caballo());
