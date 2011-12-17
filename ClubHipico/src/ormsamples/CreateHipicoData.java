@@ -22,6 +22,10 @@ public class CreateHipicoData {
 			orm.Hip_apuesta lormHip_apuesta = lormHip_apuestaDAO.createHip_apuesta();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : co_id_carrera, ca_id_caballo, ap_tipo, ap_monto
 			lormHip_apuestaDAO.save(lormHip_apuesta);
+			orm.dao.Hip_logDAO lormHip_logDAO = lDAOFactory.getHip_logDAO();
+			orm.Hip_log lormHip_log = lormHip_logDAO.createHip_log();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : lo_tiempo, lo_hora
+			lormHip_logDAO.save(lormHip_log);
 			t.commit();
 		}
 		catch (Exception e) {

@@ -60,6 +60,10 @@ public class CorridaSOAPVO {
 	}
 	
 	
+	/**Para setear objeto apuesta y poder pasarlo al ws
+	 * @param hip_corridaOrm
+	 * @return
+	 */
 	public static CorridaSOAPVO crearCorridaSOAPVO(orm.Hip_corrida hip_corridaOrm){
 		
 		CorridaSOAPVO obj= new CorridaSOAPVO();

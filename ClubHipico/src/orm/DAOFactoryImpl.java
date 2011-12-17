@@ -32,5 +32,10 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _hip_apuestaDAO;
 	}
 	
+	private Hip_logDAO _hip_logDAO = new Hip_logDAOImpl();
+	public Hip_logDAO getHip_logDAO() {
+		return _hip_logDAO;
+	}
+	
 }
 

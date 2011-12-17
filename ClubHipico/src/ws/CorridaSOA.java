@@ -10,6 +10,15 @@ import SOAPVO.CorridaSOAPVO;
 public class CorridaSOA {
 
 	
+	/** metodo para agregar una carrera entregandole los parametros correspondientes
+	 * @param co_id_carrera codigo de la carrera
+	 * @param co_fecha fecha de la carrera dd/mm/aa
+	 * @param co_hora  hora de la carrera hh:mm
+	 * @param co_ganancia en este parametro se guarda la cantidad de dinero acumulada por carrera
+	 * @param co_finalizado muestra si la carrera se finalizo, en este caso al crear una carrera
+	 * comienza con el valor 0
+	 * @return retorna mensaje que la carrera fue agregada
+	 */
 	public String add(String co_id_carrera, String co_fecha,String co_hora,int co_ganancia,int co_finalizado){
 		String mensaje="";
 		int resultado=1;
@@ -62,6 +71,11 @@ public class CorridaSOA {
 		return mensaje;
 	}// fin metodo add
 	
+	/** este metodo esta echo para mostrar todas las carreras
+	 * @param co_id_carrera paso el parametro id carrera con el valor "carr" para que me muestre
+	 * todas las carreras
+ 	 * @return retorna un json con todas las carreras
+	 */
 	public String get(String co_id_carrera){
 		String json=null;
 		

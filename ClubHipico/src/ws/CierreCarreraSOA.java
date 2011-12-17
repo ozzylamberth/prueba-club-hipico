@@ -15,6 +15,12 @@ import SOAPVO.ApuestaSOAPVO;
 
 public class CierreCarreraSOA {
 
+	/** metodo para cerrar una carrera
+	 * @param co_id_carrera le entrego el id de la carrera a cerrar
+	 * @param ca_id_caballo le entrego el id del caballo que gano
+	 * @return retorna los ganadores y la cantidad de dinero que ganan
+	 */
+
 	public String cerrarCaja(String co_id_carrera, String ca_id_caballo){
 		double ganancia =0;
 		int montoGanador=0;

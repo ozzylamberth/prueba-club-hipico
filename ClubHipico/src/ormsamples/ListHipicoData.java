@@ -34,6 +34,14 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Hip_log...");
+		orm.Hip_log[] ormHip_logs = lDAOFactory.getHip_logDAO().listHip_logByQuery(null, null);
+		length = Math.min(ormHip_logs.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(ormHip_logs[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 	}
 	
 	public void listByCriteria() throws PersistentException  {
@@ -72,6 +80,18 @@ public void listTestData() throws PersistentException {
 			 System.out.println(ormHip_apuestas[i]);
 		}
 		System.out.println(length + " Hip_apuesta record(s) retrieved."); 
+		
+		System.out.println("Listing Hip_log by Criteria...");
+		orm.Hip_logCriteria hip_logCriteria = new orm.Hip_logCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//hip_logCriteria.lo_id.eq();
+		hip_logCriteria.setMaxResults(ROW_COUNT);
+		orm.Hip_log[] ormHip_logs = hip_logCriteria.listHip_log();
+		length =ormHip_logs== null ? 0 : Math.min(ormHip_logs.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(ormHip_logs[i]);
+		}
+		System.out.println(length + " Hip_log record(s) retrieved."); 
 		
 	}
 	

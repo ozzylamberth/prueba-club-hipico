@@ -1,5 +1,9 @@
 package Unit;
 
+/** prueba unitarias para agregar corridas y mostrar corridas
+ * @author erwin
+ *
+ */
 public class CorridaTest {
 	
 	
