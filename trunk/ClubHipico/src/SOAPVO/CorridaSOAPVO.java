@@ -3,7 +3,11 @@ package SOAPVO;
 public class CorridaSOAPVO {
 
 	
-	String co_id_carrera; String co_fecha;String co_hora;int co_ganancia;
+	String co_id_carrera; 
+	String co_fecha;
+	String co_hora;
+	int co_ganancia;
+	int co_finalizado;
 	
 	
 	public void setCo_id_carrera(String co_id_carrera){
@@ -47,17 +51,24 @@ public class CorridaSOAPVO {
 		
 		return co_ganancia;
 	}
+	public void setCo_finalizado(int co_finalizado){
+		this.co_finalizado = co_finalizado;
+	}
+	
+	public int getCo_finalizado(){
+		return co_finalizado;
+	}
 	
 	
-	public static CorridaSOAPVO crearCorridaSOAPVO (orm.Hip_corrida hip_corridaOrm){
+	public static CorridaSOAPVO crearCorridaSOAPVO(orm.Hip_corrida hip_corridaOrm){
 		
 		CorridaSOAPVO obj= new CorridaSOAPVO();
 		
-		hip_corridaOrm.setCo_id_carrera(hip_corridaOrm.getCo_id_carrera());
-		hip_corridaOrm.setCo_fecha(hip_corridaOrm.getCo_fecha());
-		hip_corridaOrm.setCo_hora(hip_corridaOrm.getCo_hora());
-		hip_corridaOrm.setCo_ganancia(hip_corridaOrm.getCo_ganancia());
-		
+		obj.setCo_id_carrera(hip_corridaOrm.getCo_id_carrera());
+		obj.setCo_fecha(hip_corridaOrm.getCo_fecha());
+		obj.setCo_hora(hip_corridaOrm.getCo_hora());
+		obj.setCo_ganancia(hip_corridaOrm.getCo_ganancia());
+		obj.setCo_finalizado(hip_corridaOrm.getCo_finalizado());
 
 		return obj;
 	}

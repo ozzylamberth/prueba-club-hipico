@@ -5,7 +5,6 @@ import java.util.Collection;
 import org.orm.PersistentException;
 import com.google.gson.Gson;
 
-import SOAPVO.CaballosSOAPVO;
 import SOAPVO.CorridaSOAPVO;
 
 public class CorridaSOA {
@@ -16,7 +15,7 @@ public class CorridaSOA {
 		int resultado=1;
 		
 		if(co_id_carrera.equals("") || co_id_carrera==null || co_fecha.equals("") || co_fecha==null
-				|| co_hora.equals("") || co_hora==null || co_finalizado==0){
+				|| co_hora.equals("") || co_hora==null || co_finalizado!=0 || co_ganancia!=0){
 			
 			mensaje="ingrese todos los datos";
 			resultado=0;

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws" xmlns:intf="http://ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="cerrarCaja">
+    <complexType>
+     <sequence>
+      <element name="co_id_carrera" type="xsd:string"/>
+      <element name="ca_id_caballo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cerrarCajaResponse">
+    <complexType>
+     <sequence>
+      <element name="cerrarCajaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="cerrarCajaResponse">
+
+      <wsdl:part element="impl:cerrarCajaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="cerrarCajaRequest">
+
+      <wsdl:part element="impl:cerrarCaja" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CierreCarreraSOA">
+
+      <wsdl:operation name="cerrarCaja">
+
+         <wsdl:input message="impl:cerrarCajaRequest" name="cerrarCajaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:cerrarCajaResponse" name="cerrarCajaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CierreCarreraSOASoapBinding" type="impl:CierreCarreraSOA">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="cerrarCaja">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cerrarCajaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cerrarCajaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CierreCarreraSOAService">
+
+      <wsdl:port binding="impl:CierreCarreraSOASoapBinding" name="CierreCarreraSOA">
+
+         <wsdlsoap:address location="http://localhost:8080/ClubHipico/services/CierreCarreraSOA"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
