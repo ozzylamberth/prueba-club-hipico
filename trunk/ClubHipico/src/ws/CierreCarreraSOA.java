@@ -135,7 +135,7 @@ public class CierreCarreraSOA {
 		lo_parametros="("+ca_id_caballo+")("+co_id_carrera+")";
 		
 		ws.LogsSOA obj = new LogsSOA();
-		obj.add(lo_hora,lo_parametros,json, lo_tiempo);
+		obj.add(lo_hora,lo_parametros,"envio de ganadores", lo_tiempo);
 		
 		
 		
